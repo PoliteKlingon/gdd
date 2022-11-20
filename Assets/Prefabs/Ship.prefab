@@ -94,10 +94,9 @@ GameObject:
   - component: {fileID: 8590585048148476795}
   - component: {fileID: 8590585048148476794}
   - component: {fileID: 8590585048148476793}
-  - component: {fileID: 8590585048148476792}
-  - component: {fileID: 8590585048148476797}
   - component: {fileID: 8590585048148476796}
   - component: {fileID: 6397886557849861869}
+  - component: {fileID: 1026266607748800260}
   m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
@@ -177,33 +176,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8590585048148476792
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8590585048148476770}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &8590585048148476797
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8590585048148476770}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 1.7
-  m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8590585048148476796
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -235,6 +207,20 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1871851070003468337, guid: 1b4e33e523d9793558119062b592e81e, type: 3}
   shootingInterval: 1
   projectileSpeed: 25
+  shootingButton: 323
+--- !u!65 &1026266607748800260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590585048148476770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 27, y: 8, z: 18}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &853796252084546613
 PrefabInstance:
   m_ObjectHideFlags: 0
