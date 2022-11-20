@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8279694000798547271}
   - component: {fileID: 3395506665747855196}
   - component: {fileID: 343153190216407480}
+  - component: {fileID: 2099407455104380700}
   m_Layer: 7
   m_Name: Projectile
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1871851070003468337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3253961619304011939}
@@ -131,6 +132,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.45}
+--- !u!114 &2099407455104380700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871851070003468337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe100712c5e7ee619dfa4f01367bc63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8721064810259533761
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 8721064810259533761}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5169996472668766848}
@@ -4970,7 +4983,7 @@ Transform:
   m_GameObject: {fileID: 8751238786779022572}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5169996472668766848}
