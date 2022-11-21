@@ -7,6 +7,10 @@ public class ProjectileGun : MonoBehaviour
     [SerializeField] private float shootingInterval = 1.0f;
     [SerializeField] private float projectileSpeed = 25.0f;
 
+    [SerializeField] private float shiftForward = 0;
+    [SerializeField] private float shiftRight = 0;
+    [SerializeField] private float shiftUp = 0;
+    
     [SerializeField] private KeyCode shootingButton = KeyCode.Mouse0;
 
     private float _shootingDelay;
@@ -27,7 +31,11 @@ public class ProjectileGun : MonoBehaviour
 
         if (Input.GetKey(shootingButton))
         {
-            var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+            var projectile = Instantiate(
+                projectilePrefab, 
+                transform.position + shiftForward * transform.forward + shiftRight * transform.right + shiftUp * transform.up, 
+                transform.rotation
+                );
             projectile.GetComponent<ProjectileController>().SetSpeed(projectileSpeed);
             _shootingDelay = shootingInterval;            
         }

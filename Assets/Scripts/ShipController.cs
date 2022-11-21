@@ -78,8 +78,8 @@ public class ShipController : MonoBehaviour
         }
         
         //brzdeni
-        var vel = _rigidbody.velocity;
-        _rigidbody.AddForce(-vel * 2 * Time.deltaTime, ForceMode.Impulse);
+        _rigidbody.AddForce(-_rigidbody.velocity * 2 * Time.deltaTime, ForceMode.Impulse);
+        _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 100 * Time.deltaTime);
         
         //maxspeed clip bude zde
         
@@ -87,5 +87,20 @@ public class ShipController : MonoBehaviour
         _rotationX = Input.GetAxis(rotationAxisX);
         _rotationY = Input.GetAxis(rotationAxisY);
         transform.Rotate(new Vector3(-_rotationY, _rotationX, 0));
+        
+        //skryt kurzor mysi
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (Cursor.lockState == CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
     }
 }

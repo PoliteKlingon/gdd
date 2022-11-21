@@ -319,6 +319,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590585048148476796, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590585048148476796, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
@@ -480,6 +484,14 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: shiftZ
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: shiftForward
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileSpeed
       value: 50
       objectReference: {fileID: 0}
@@ -594,6 +606,10 @@ PrefabInstance:
     - target: {fileID: 8590585048148476795, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590585048148476796, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: m_Mass
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8590585048148476796, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: m_UseGravity
@@ -819,7 +835,7 @@ MonoBehaviour:
   backThrusters:
   - {fileID: 828333197}
   - {fileID: 711970486}
-  acceleration: 10
+  acceleration: 50
   maxSpeed: 10
   rotationAxisX: Mouse X
   rotationAxisY: Mouse Y
