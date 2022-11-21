@@ -33,7 +33,10 @@ public class ProjectileGun : MonoBehaviour
         {
             var projectile = Instantiate(
                 projectilePrefab, 
-                transform.position + shiftForward * transform.forward + shiftRight * transform.right + shiftUp * transform.up, 
+                transform.position 
+                            + shiftForward * transform.forward 
+                            + shiftRight * transform.right 
+                            + shiftUp * transform.up, 
                 transform.rotation
                 );
             projectile.GetComponent<ProjectileController>().SetSpeed(projectileSpeed);
