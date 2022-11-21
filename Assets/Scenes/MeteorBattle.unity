@@ -819,7 +819,10 @@ MonoBehaviour:
   backThrusters:
   - {fileID: 828333197}
   - {fileID: 711970486}
-  speed: 10
+  acceleration: 10
+  maxSpeed: 10
+  rotationAxisX: Mouse X
+  rotationAxisY: Mouse Y
 --- !u!1 &1966961160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7616233060389512681, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}

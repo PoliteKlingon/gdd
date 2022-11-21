@@ -14,9 +14,16 @@ public class ShipController : MonoBehaviour
     [SerializeField] private GameObject[] frontThrusters;
     [SerializeField] private GameObject[] backThrusters;
     
-    [SerializeField] private float speed = 10;
+    [SerializeField] private float acceleration = 10;
+    [SerializeField] private float maxSpeed = 10;
 
     private Rigidbody _rigidbody;
+
+    [SerializeField] private string rotationAxisX = "Mouse X";
+    [SerializeField] private string rotationAxisY = "Mouse Y";
+
+    private float _rotationX;
+    private float _rotationY;
 
     private void SetThrusters(GameObject[] thrusters, bool value)
     {
@@ -48,26 +55,37 @@ public class ShipController : MonoBehaviour
         
         if (Input.GetKey(forwardKey))
         {
-            _rigidbody.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.forward * acceleration * Time.deltaTime, ForceMode.Impulse);
             SetThrusters(backThrusters, true);
         }
         
         if (Input.GetKey(backwardKey))
         {
-            _rigidbody.AddForce(transform.forward * -speed * Time.deltaTime, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.forward * -acceleration * Time.deltaTime, ForceMode.Impulse);
             SetThrusters(frontThrusters, true);
         }
         
         if (Input.GetKey(rightKey))
         {
-            _rigidbody.AddForce(transform.right * speed * Time.deltaTime, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.right * acceleration * Time.deltaTime, ForceMode.Impulse);
             SetThrusters(leftThrusters, true);
         }
         
         if (Input.GetKey(leftKey))
         {
-            _rigidbody.AddForce(transform.right * -speed * Time.deltaTime, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.right * -acceleration * Time.deltaTime, ForceMode.Impulse);
             SetThrusters(rightThrusters, true);
         }
+        
+        //brzdeni
+        var vel = _rigidbody.velocity;
+        _rigidbody.AddForce(-vel * 2 * Time.deltaTime, ForceMode.Impulse);
+        
+        //maxspeed clip bude zde
+        
+        //rotace mysi
+        _rotationX = Input.GetAxis(rotationAxisX);
+        _rotationY = Input.GetAxis(rotationAxisY);
+        transform.Rotate(new Vector3(-_rotationY, _rotationX, 0));
     }
 }
