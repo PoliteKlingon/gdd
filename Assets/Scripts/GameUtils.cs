@@ -29,7 +29,18 @@ public class GameUtils : MonoBehaviour
         Left,
         Right
     }
+
+    public void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     
+    public void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     
     // Start is called before the first frame update
     void Start()

@@ -100,13 +100,11 @@ public class ShipController : MonoBehaviour
         {
             if (Cursor.lockState == CursorLockMode.None)
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                GameUtils.Instance.LockCursor();
             }
             else
             {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                GameUtils.Instance.UnlockCursor();
             }
         }
     }
