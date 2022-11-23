@@ -14,10 +14,18 @@ public class ProjectileGun : MonoBehaviour
     [SerializeField] private KeyCode shootingButton = KeyCode.Mouse0;
 
     private float _shootingDelay;
+
+    private float _energyPortion = 1.0f;
+
+    public void SetEnergy(float portion)
+    {
+        _energyPortion = portion;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        _shootingDelay = shootingInterval;
+        _shootingDelay = shootingInterval * (1 / _energyPortion);
     }
 
     // Update is called once per frame
@@ -39,8 +47,9 @@ public class ProjectileGun : MonoBehaviour
                             + shiftUp * transform.up, 
                 transform.rotation
                 );
-            projectile.GetComponent<ProjectileController>().SetSpeed(projectileSpeed);
-            _shootingDelay = shootingInterval;            
+            projectile.GetComponent<ProjectileController>().SetSpeed(projectileSpeed * _energyPortion);
+            _shootingDelay = shootingInterval  * (1 / _energyPortion);
+            //TODO: upravit damage projektilu podle energie
         }
     }
 }

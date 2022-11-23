@@ -25,6 +25,13 @@ public class ShipController : MonoBehaviour
     private float _rotationX;
     private float _rotationY;
 
+    private float _energyPortion = 1.0f;
+    
+    public void SetEnergy(float portion)
+    {
+        _energyPortion = portion;
+    }
+
     private void SetThrusters(GameObject[] thrusters, bool value)
     {
         foreach (GameObject thruster in thrusters)
@@ -55,25 +62,25 @@ public class ShipController : MonoBehaviour
         
         if (Input.GetKey(forwardKey))
         {
-            _rigidbody.AddForce(transform.forward * acceleration * Time.deltaTime, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.forward * _energyPortion * acceleration * Time.deltaTime, ForceMode.Impulse);
             SetThrusters(backThrusters, true);
         }
         
         if (Input.GetKey(backwardKey))
         {
-            _rigidbody.AddForce(transform.forward * -acceleration * Time.deltaTime, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.forward * _energyPortion * -acceleration * Time.deltaTime, ForceMode.Impulse);
             SetThrusters(frontThrusters, true);
         }
         
         if (Input.GetKey(rightKey))
         {
-            _rigidbody.AddForce(transform.right * acceleration * Time.deltaTime, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.right * _energyPortion * acceleration * Time.deltaTime, ForceMode.Impulse);
             SetThrusters(leftThrusters, true);
         }
         
         if (Input.GetKey(leftKey))
         {
-            _rigidbody.AddForce(transform.right * -acceleration * Time.deltaTime, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.right * _energyPortion * -acceleration * Time.deltaTime, ForceMode.Impulse);
             SetThrusters(rightThrusters, true);
         }
         
@@ -81,7 +88,7 @@ public class ShipController : MonoBehaviour
         _rigidbody.AddForce(-_rigidbody.velocity * 2 * Time.deltaTime, ForceMode.Impulse);
         _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 100 * Time.deltaTime);
         
-        //maxspeed clip bude zde
+        //TODO: maxspeed clipping
         
         //rotace mysi
         _rotationX = Input.GetAxis(rotationAxisX);
