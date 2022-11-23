@@ -10,6 +10,7 @@ public class CanvasController : MonoBehaviour
     void Start()
     {
         canvas = gameObject.GetComponent<Canvas>();
+        canvas.enabled = false; 
     }
 
     // Update is called once per frame
