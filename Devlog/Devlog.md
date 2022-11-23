@@ -10,5 +10,8 @@ Total time spent								~3.75h
 Repository clone and basic setup				~0.5h
 Finding good hdri texture to try lights			~0.25h
 
-Total time spent								~0.75h
+Finding textures for energy UI					~0.5h
+composing basic UI (non functional)				~1.25h
+
+Total time spent								~2.5h
 ### Petr
