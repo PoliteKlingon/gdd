@@ -95,17 +95,13 @@ public class ShipController : MonoBehaviour
         _rotationY = Input.GetAxis(rotationAxisY);
         transform.Rotate(new Vector3(-_rotationY, _rotationX, 0));
         
-        //skryt kurzor mysi
+        //skryt kurzor mysi, pozdeji defaultne, ted na Esc.
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             if (Cursor.lockState == CursorLockMode.None)
-            {
                 GameUtils.Instance.LockCursor();
-            }
             else
-            {
                 GameUtils.Instance.UnlockCursor();
-            }
         }
     }
 }
