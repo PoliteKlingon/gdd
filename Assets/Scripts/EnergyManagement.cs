@@ -17,7 +17,7 @@ public class EnergyManagement : MonoBehaviour
      * Total energy se da doplnit power-upama 
      */
     
-    private float _totalEnergy = 1.0f;
+    [SerializeField] private float _totalEnergy = 1.0f; //to be changed? we'll see
 
     private float _enginesEnergyPart       = 2/10;
     private float _weaponsEnergyPart       = 2/10;
@@ -39,6 +39,13 @@ public class EnergyManagement : MonoBehaviour
         //TODO: inicializace stitu
     }
 
+    public void AddEnergy(float amount) //or subtract
+    {
+        _totalEnergy += amount;
+        if (_totalEnergy < 0.0f)
+            _totalEnergy = 0.0f;
+    }
+
     private void setEnergy()
     {
         _gunController.SetEnergy(_weaponsEnergyPart * _totalEnergy);
@@ -48,16 +55,19 @@ public class EnergyManagement : MonoBehaviour
 
     public void EnergyToEngines()
     {
-        //TODO vypocet a uprava
+        //TODO vypocet
+        setEnergy();
     }
     
     public void EnergyToWeapons()
     {
-        //TODO vypocet a uprava
+        //TODO vypocet
+        setEnergy();
     }
     
     public void EnergyToShields(GameUtils.ShieldType type)
     {
-        //TODO vypocet a uprava
+        //TODO vypocet
+        setEnergy();
     }
 }
