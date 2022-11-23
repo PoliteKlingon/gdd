@@ -41,8 +41,8 @@ public class EnergyManagement : MonoBehaviour
 
     private void setEnergy()
     {
-        _gunController.SetEnergy(_weaponsEnergyPart);
-        _shipController.SetEnergy(_enginesEnergyPart);
+        _gunController.SetEnergy(_weaponsEnergyPart * _totalEnergy);
+        _shipController.SetEnergy(_enginesEnergyPart * _totalEnergy);
         //TODO: shields
     }
 
