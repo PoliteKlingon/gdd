@@ -21,6 +21,7 @@ public class ShipController : MonoBehaviour
 
     [SerializeField] private string rotationAxisX = "Mouse X";
     [SerializeField] private string rotationAxisY = "Mouse Y";
+    [SerializeField] private float sensitivity = 1.0f;
 
     private float _rotationX;
     private float _rotationY;
@@ -93,7 +94,7 @@ public class ShipController : MonoBehaviour
         //rotace mysi
         _rotationX = Input.GetAxis(rotationAxisX);
         _rotationY = Input.GetAxis(rotationAxisY);
-        transform.Rotate(new Vector3(-_rotationY, _rotationX, 0));
+        transform.Rotate(new Vector3(sensitivity * -_rotationY, sensitivity * _rotationX, 0));
         
         //skryt kurzor mysi, pozdeji defaultne, ted na Esc.
         if (Input.GetKeyUp(KeyCode.Escape))
