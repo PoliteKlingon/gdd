@@ -14,6 +14,25 @@ public class ProjectileGun : MonoBehaviour
     [SerializeField] private KeyCode shootingButton = KeyCode.Mouse0;
 
     private float _shootingDelay;
+    
+    [SerializeField] private bool controlledByGamepad = false;
+    private GamepadControls _controls;
+
+    private void Awake()
+    {
+        if (controlledByGamepad)
+            _controls = new GamepadControls();
+    }
+
+    private void OnEnable()
+    {
+        _controls.Gameplay.Enable();
+    }
+    
+    private void OnDisable()
+    {
+        _controls.Gameplay.Disable();
+    }
 
     private float _energyPortion = 1.0f;
 
@@ -28,6 +47,21 @@ public class ProjectileGun : MonoBehaviour
         _shootingDelay = shootingInterval * (1 / _energyPortion);
     }
 
+    private void Shoot()
+    {
+        var projectile = Instantiate(
+            projectilePrefab, 
+            transform.position 
+            + shiftForward * transform.forward 
+            + shiftRight * transform.right 
+            + shiftUp * transform.up, 
+            transform.rotation
+        );
+        projectile.GetComponent<ProjectileController>().SetSpeed(projectileSpeed * _energyPortion);
+        _shootingDelay = shootingInterval  * (1 / _energyPortion);
+        //TODO: upravit damage projektilu podle energie
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -37,19 +71,10 @@ public class ProjectileGun : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey(shootingButton))
+        if ((!controlledByGamepad && Input.GetKey(shootingButton)) 
+            || (controlledByGamepad && _controls.Gameplay.Shoot.IsPressed()))
         {
-            var projectile = Instantiate(
-                projectilePrefab, 
-                transform.position 
-                            + shiftForward * transform.forward 
-                            + shiftRight * transform.right 
-                            + shiftUp * transform.up, 
-                transform.rotation
-                );
-            projectile.GetComponent<ProjectileController>().SetSpeed(projectileSpeed * _energyPortion);
-            _shootingDelay = shootingInterval  * (1 / _energyPortion);
-            //TODO: upravit damage projektilu podle energie
+            Shoot();
         }
     }
 }

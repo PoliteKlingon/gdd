@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShipController : MonoBehaviour
 {
@@ -25,6 +27,15 @@ public class ShipController : MonoBehaviour
 
     private float _rotationX;
     private float _rotationY;
+
+    [SerializeField] private bool controlledByGamepad = false;
+    private GamepadControls _controls;
+
+    private void Awake()
+    {
+        if (controlledByGamepad)
+            _controls = new GamepadControls();
+    }
 
     private float _energyPortion = 1.0f;
     
