@@ -1067,6 +1067,10 @@ PrefabInstance:
       propertyPath: shootingInterval
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: controlledByGamepad
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6438141884486223504, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -1999,7 +2003,9 @@ MonoBehaviour:
   maxSpeed: 10
   rotationAxisX: 
   rotationAxisY: 
-  sensitivity: 1
+  mouseSensitivity: 1
+  controlledByGamepad: 1
+  gamepadSensitivity: 0.75
 --- !u!1 &914200108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,7 +2040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   activateKey: 0
-  unlockCursorOnActivation: 1
+  unlockCursorOnActivation: 0
+  controlledByGamepad: 1
 --- !u!114 &914200110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3249,6 +3256,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   activateKey: 9
   unlockCursorOnActivation: 1
+  controlledByGamepad: 0
 --- !u!1 &1662305804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,7 +3614,9 @@ MonoBehaviour:
   maxSpeed: 10
   rotationAxisX: Mouse X
   rotationAxisY: Mouse Y
-  sensitivity: 1.5
+  mouseSensitivity: 1
+  controlledByGamepad: 0
+  gamepadSensitivity: 1
 --- !u!1 &1903157324
 GameObject:
   m_ObjectHideFlags: 0

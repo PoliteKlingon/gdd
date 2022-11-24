@@ -21,12 +21,14 @@ public class CanvasController : MonoBehaviour
 
     private void OnEnable()
     {
-        _controls.Gameplay.Enable();
+        if (controlledByGamepad)
+            _controls.Gameplay.Enable();
     }
     
     private void OnDisable()
     {
-        _controls.Gameplay.Disable();
+        if (controlledByGamepad)
+            _controls.Gameplay.Disable();
     }
     
     // Start is called before the first frame update

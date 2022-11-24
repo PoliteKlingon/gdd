@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class ShipController : MonoBehaviour
 {
@@ -23,18 +19,31 @@ public class ShipController : MonoBehaviour
 
     [SerializeField] private string rotationAxisX = "Mouse X";
     [SerializeField] private string rotationAxisY = "Mouse Y";
-    [SerializeField] private float sensitivity = 1.0f;
+    [SerializeField] private float mouseSensitivity = 1.0f;
 
     private float _rotationX;
     private float _rotationY;
 
     [SerializeField] private bool controlledByGamepad = false;
     private GamepadControls _controls;
+    [SerializeField] private float gamepadSensitivity = 1.0f;
 
     private void Awake()
     {
         if (controlledByGamepad)
             _controls = new GamepadControls();
+    }
+
+    private void OnEnable()
+    {
+        if (controlledByGamepad)
+            _controls.Gameplay.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if(controlledByGamepad)
+            _controls.Gameplay.Disable();
     }
 
     private float _energyPortion = 1.0f;
@@ -66,6 +75,30 @@ public class ShipController : MonoBehaviour
         GameUtils.Instance.LockCursor();
     }
 
+    private void GoForward(float accel)
+    {
+        _rigidbody.AddForce(transform.forward * _energyPortion * accel * Time.deltaTime, ForceMode.Impulse);
+        SetThrusters(backThrusters, true);
+    }
+
+    private void GoBack(float accel)
+    {
+        _rigidbody.AddForce(transform.forward * _energyPortion * -accel * Time.deltaTime, ForceMode.Impulse);
+        SetThrusters(frontThrusters, true);
+    }
+    
+    private void GoLeft(float accel)
+    {
+        _rigidbody.AddForce(transform.right * _energyPortion * -accel * Time.deltaTime, ForceMode.Impulse);
+        SetThrusters(rightThrusters, true);
+    }
+    
+    private void GoRight(float accel)
+    {
+        _rigidbody.AddForce(transform.right * _energyPortion * accel * Time.deltaTime, ForceMode.Impulse);
+        SetThrusters(leftThrusters, true);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -73,44 +106,54 @@ public class ShipController : MonoBehaviour
         SetThrusters(backThrusters, false);
         SetThrusters(leftThrusters, false);
         SetThrusters(rightThrusters, false);
-        
-        if (Input.GetKey(forwardKey))
+
+        if (controlledByGamepad)
         {
-            _rigidbody.AddForce(transform.forward * _energyPortion * acceleration * Time.deltaTime, ForceMode.Impulse);
-            SetThrusters(backThrusters, true);
+            Vector2 move = _controls.Gameplay.Move.ReadValue<Vector2>();
+            if (move.y > 0)
+                GoForward(move.y * acceleration);
+            
+            else if (move.y < 0)
+                GoBack(move.y * -acceleration);
+
+            if (move.x > 0)
+                GoRight(move.x * acceleration);
+            
+            else if (move.x < 0)
+                GoLeft(move.x * -acceleration);
+            
+            //rotace
+            Vector2 rotate = _controls.Gameplay.Rotate.ReadValue<Vector2>();
+            transform.Rotate(new Vector3(gamepadSensitivity * -rotate.y, gamepadSensitivity * rotate.x, 0));
         }
-        
-        if (Input.GetKey(backwardKey))
+        else
         {
-            _rigidbody.AddForce(transform.forward * _energyPortion * -acceleration * Time.deltaTime, ForceMode.Impulse);
-            SetThrusters(frontThrusters, true);
-        }
+            if (Input.GetKey(forwardKey))
+                GoForward(acceleration);
+            
+            if (Input.GetKey(backwardKey))
+                GoBack(acceleration);
+            
+            if (Input.GetKey(rightKey))
+                GoRight(acceleration);
+            
+            if (Input.GetKey(leftKey))
+                GoLeft(acceleration);
         
-        if (Input.GetKey(rightKey))
-        {
-            _rigidbody.AddForce(transform.right * _energyPortion * acceleration * Time.deltaTime, ForceMode.Impulse);
-            SetThrusters(leftThrusters, true);
+            //rotace mysi
+            _rotationX = Input.GetAxis(rotationAxisX);
+            _rotationY = Input.GetAxis(rotationAxisY);
+            transform.Rotate(new Vector3(mouseSensitivity * -_rotationY, mouseSensitivity * _rotationX, 0));
         }
-        
-        if (Input.GetKey(leftKey))
-        {
-            _rigidbody.AddForce(transform.right * _energyPortion * -acceleration * Time.deltaTime, ForceMode.Impulse);
-            SetThrusters(rightThrusters, true);
-        }
-        
+
         //brzdeni
         _rigidbody.AddForce(-_rigidbody.velocity * 2 * Time.deltaTime, ForceMode.Impulse);
         _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 100 * Time.deltaTime);
         
         //TODO: maxspeed clipping
         
-        //rotace mysi
-        _rotationX = Input.GetAxis(rotationAxisX);
-        _rotationY = Input.GetAxis(rotationAxisY);
-        transform.Rotate(new Vector3(sensitivity * -_rotationY, sensitivity * _rotationX, 0));
-        
         //skryt kurzor mysi, pozdeji defaultne, ted na Esc.
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (!controlledByGamepad && Input.GetKeyUp(KeyCode.Escape))
         {
             if (Cursor.lockState == CursorLockMode.None)
                 GameUtils.Instance.LockCursor();

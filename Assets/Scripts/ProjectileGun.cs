@@ -26,12 +26,14 @@ public class ProjectileGun : MonoBehaviour
 
     private void OnEnable()
     {
-        _controls.Gameplay.Enable();
+        if (controlledByGamepad)
+            _controls.Gameplay.Enable();
     }
     
     private void OnDisable()
     {
-        _controls.Gameplay.Disable();
+        if (controlledByGamepad)
+            _controls.Gameplay.Disable();
     }
 
     private float _energyPortion = 1.0f;
