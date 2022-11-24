@@ -6,8 +6,9 @@ Ship movement, rotation							~0.75h
 Meteor generation, simple environmentProps		~0.5h
 Energy management started						~1h
 Gamepad trial and error, multiple fixes			~1h
+Gamepad support done							~1h
 
-Total time spent								~5.75h
+Total time spent								~6.75h
 ### Honza
 Repository clone and basic setup				~0.5h
 Finding good hdri texture to try lights			~0.25h
