@@ -51,6 +51,8 @@ public class ShipController : MonoBehaviour
         SetThrusters(backThrusters, false);
         SetThrusters(leftThrusters, false);
         SetThrusters(rightThrusters, false);
+        
+        GameUtils.Instance.LockCursor();
     }
 
     // Update is called once per frame

@@ -6,6 +6,10 @@ public class CanvasController : MonoBehaviour
 {
 
     [SerializeField] public Canvas canvas;
+
+    [SerializeField] private KeyCode activateKey = KeyCode.Tab;
+    [SerializeField] private bool unlockCursorOnActivation = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +20,17 @@ public class CanvasController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("tab"))
+        if (Input.GetKey(activateKey))
         {
             canvas.enabled = true;
+            if (unlockCursorOnActivation) 
+                GameUtils.Instance.UnlockCursor();
         }
-        if (Input.GetKeyUp("tab"))
+        if (Input.GetKeyUp(activateKey))
         {
             canvas.enabled = false;
+            if (unlockCursorOnActivation) 
+                GameUtils.Instance.LockCursor();
         }
     }
 }
