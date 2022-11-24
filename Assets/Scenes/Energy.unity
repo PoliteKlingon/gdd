@@ -2005,7 +2005,7 @@ MonoBehaviour:
   rotationAxisY: 
   mouseSensitivity: 1
   controlledByGamepad: 1
-  gamepadSensitivity: 0.75
+  gamepadSensitivity: 0.5
 --- !u!1 &914200108
 GameObject:
   m_ObjectHideFlags: 0
