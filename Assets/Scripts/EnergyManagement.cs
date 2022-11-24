@@ -19,14 +19,14 @@ public class EnergyManagement : MonoBehaviour
     
     [SerializeField] private float _totalEnergy = 1.0f; //to be changed? we'll see
 
-    private float _enginesEnergyPart       = 2/10;
-    private float _weaponsEnergyPart       = 2/10;
-    private float _frontShieldsEnergyPart  = 1/10;
-    private float _backShieldsEnergyPart   = 1/10;
-    private float _leftShieldsEnergyPart   = 1/10;
-    private float _rightShieldsEnergyPart  = 1/10;
-    private float _topShieldsEnergyPart    = 1/10;
-    private float _bottomShieldsEnergyPart = 1/10;
+    private float _enginesEnergyPart       = 2.0f/10;
+    private float _weaponsEnergyPart       = 2.0f/10;
+    private float _frontShieldsEnergyPart  = 1.0f/10;
+    private float _backShieldsEnergyPart   = 1.0f/10;
+    private float _leftShieldsEnergyPart   = 1.0f/10;
+    private float _rightShieldsEnergyPart  = 1.0f/10;
+    private float _topShieldsEnergyPart    = 1.0f/10;
+    private float _bottomShieldsEnergyPart = 1.0f/10;
 
     private void Start()
     {
