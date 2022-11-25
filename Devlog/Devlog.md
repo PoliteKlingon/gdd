@@ -18,3 +18,8 @@ composing basic UI (non functional)				~1.25h
 
 Total time spent								~2.5h
 ### Petr
+Repo clone and basic setup						~0.5h
+Basics of shields system 						~1h
+Testing of collisions of shield system			~1h
+
+Total time spent								~2.5h
