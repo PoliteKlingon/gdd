@@ -17,6 +17,7 @@ public class ProjectileController : MonoBehaviour
 
     void Update()
     {
-        _rigidbody.AddForce(transform.forward * _speed, ForceMode.Force);
+        if (_rigidbody.velocity.magnitude < 0.1)
+            _rigidbody.AddForce(transform.forward * _speed, ForceMode.VelocityChange);
     }
 }
