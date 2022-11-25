@@ -48,28 +48,33 @@ public class EnergyManagement : MonoBehaviour
             _totalEnergy = 0.0f;
     }
 
-    private void setEnergy()
+    private void SetEnergy()
     {
         _gunController.SetEnergy(_weaponsEnergyPart * _totalEnergy);
         _shipController.SetEnergy(_enginesEnergyPart * _totalEnergy);
-        //TODO: shields - controller for 
+        _shieldsController.SetEnergy(_frontShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Front);
+        _shieldsController.SetEnergy(_backShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Back);
+        _shieldsController.SetEnergy(_topShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Top);
+        _shieldsController.SetEnergy(_bottomShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Bottom);
+        _shieldsController.SetEnergy(_leftShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Left);
+        _shieldsController.SetEnergy(_rightShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Right);
     }
 
     public void EnergyToEngines()
     {
         //TODO vypocet
-        setEnergy();
+        SetEnergy();
     }
     
     public void EnergyToWeapons()
     {
         //TODO vypocet
-        setEnergy();
+        SetEnergy();
     }
     
     public void EnergyToShields(GameUtils.ShieldType type)
     {
         //TODO vypocet
-        setEnergy();
+        SetEnergy();
     }
 }

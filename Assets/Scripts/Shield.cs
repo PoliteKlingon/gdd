@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    [SerializeField] private GameUtils.ShieldType type;
     private float _energy;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class Shield : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         //TODO kolik ubrat energie, pripadne co udelat dal
-        Debug.Log("Hit shield");
+        Debug.Log("Hit shield" + type);
     }
 
     public void SetEnergy(float amount)
