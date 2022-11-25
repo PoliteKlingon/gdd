@@ -23,3 +23,9 @@ Basics of shields system 						~1h
 Testing of collisions of shield system			~1h
 
 Total time spent								~2.5h
+
+## Week 2
+### Jirka
+energy distribution calculation + tweaks		~0.5h
+### Honza
+### Petr

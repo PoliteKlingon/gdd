@@ -9,7 +9,7 @@ public class EnergyManagement : MonoBehaviour
     private ProjectileGun _gunController;
     private ShieldsController _shieldsController;
 
-    /* TODO: nacrt toho, jak by to potom mohlo vypadat.
+    /* Nacrt toho, jak by to potom mohlo vypadat.
      * celkova energie (s poskozenim bude postupne klesat) a jeji procentualni
      * distribuce mezi systemama na lodi.
      * Pri kazdem updatu energie (at uz ubytek kvuli poskozeni nebo uprava ze strany hrace)
@@ -62,19 +62,77 @@ public class EnergyManagement : MonoBehaviour
 
     public void EnergyToEngines()
     {
-        //TODO vypocet
+        float toAdd = 0;
+        toAdd += _weaponsEnergyPart * 0.1f;
+        toAdd += _frontShieldsEnergyPart * 0.1f;
+        toAdd += _backShieldsEnergyPart * 0.1f;
+        toAdd += _leftShieldsEnergyPart * 0.1f;
+        toAdd += _rightShieldsEnergyPart * 0.1f;
+        toAdd += _topShieldsEnergyPart * 0.1f;
+        toAdd += _bottomShieldsEnergyPart * 0.1f;
+        _enginesEnergyPart += toAdd;
         SetEnergy();
     }
     
     public void EnergyToWeapons()
     {
-        //TODO vypocet
+        float toAdd = 0;
+        toAdd += _enginesEnergyPart * 0.1f;
+        toAdd += _frontShieldsEnergyPart * 0.1f;
+        toAdd += _backShieldsEnergyPart * 0.1f;
+        toAdd += _leftShieldsEnergyPart * 0.1f;
+        toAdd += _rightShieldsEnergyPart * 0.1f;
+        toAdd += _topShieldsEnergyPart * 0.1f;
+        toAdd += _bottomShieldsEnergyPart * 0.1f;
+        _weaponsEnergyPart += toAdd;
+
         SetEnergy();
     }
     
     public void EnergyToShields(GameUtils.ShieldType type)
     {
-        //TODO vypocet
+        float toAdd = 0;
+        toAdd += _weaponsEnergyPart * 0.1f;
+        toAdd += _enginesEnergyPart * 0.1f;
+        
+        toAdd += _frontShieldsEnergyPart * 0.1f;
+        toAdd += _backShieldsEnergyPart * 0.1f;
+        toAdd += _leftShieldsEnergyPart * 0.1f;
+        toAdd += _rightShieldsEnergyPart * 0.1f;
+        toAdd += _topShieldsEnergyPart * 0.1f;
+        toAdd += _bottomShieldsEnergyPart * 0.1f;
+
+        switch (type)
+        {
+            case GameUtils.ShieldType.Back:
+                toAdd -= _backShieldsEnergyPart * 0.1f;
+                _backShieldsEnergyPart += toAdd;
+                break;
+            case GameUtils.ShieldType.Front:
+                toAdd -= _frontShieldsEnergyPart * 0.1f;
+                _frontShieldsEnergyPart += toAdd;
+                break;
+            case GameUtils.ShieldType.Top:
+                toAdd -= _topShieldsEnergyPart * 0.1f;
+                _topShieldsEnergyPart += toAdd;
+                break;
+            case GameUtils.ShieldType.Bottom:
+                toAdd -= _bottomShieldsEnergyPart * 0.1f;
+                _bottomShieldsEnergyPart += toAdd;
+                break;
+            case GameUtils.ShieldType.Left:
+                toAdd -= _leftShieldsEnergyPart * 0.1f;
+                _leftShieldsEnergyPart += toAdd;
+                break;
+            case GameUtils.ShieldType.Right:
+                toAdd -= _rightShieldsEnergyPart * 0.1f;
+                _rightShieldsEnergyPart += toAdd;
+                break;
+            default:
+                Debug.Log("unknown shield type!");
+                break;
+        }
+        
         SetEnergy();
     }
 }
