@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.061549366, g: 0.02974628, b: 0.052203253, a: 1}
+  m_IndirectSpecularColor: {r: 0.061656695, g: 0.029741338, b: 0.052236825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1093,11 +1093,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileSpeed
-      value: 50
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: projectileDamage
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shootingInterval
-      value: 0.3
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: controlledByGamepad
@@ -1923,11 +1927,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileSpeed
-      value: 50
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: projectileDamage
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shootingInterval
-      value: 0.3
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 6438141884486223504, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: m_RootOrder
@@ -2115,13 +2123,24 @@ MonoBehaviour:
   backThrusters:
   - {fileID: 1047346514}
   - {fileID: 923242107}
-  acceleration: 10
-  maxSpeed: 10
+  acceleration: 250
+  maxSpeed: 50
   rotationAxisX: 
   rotationAxisY: 
   mouseSensitivity: 1
   controlledByGamepad: 1
   gamepadSensitivity: 0.5
+--- !u!114 &908267997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1979966816369787351, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+  m_PrefabInstance: {fileID: 651387286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908267989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd64ef89c0f3f6e69f76a19b482c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &914200108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,6 +2176,15 @@ MonoBehaviour:
   canvas: {fileID: 0}
   activateKey: 0
   unlockCursorOnActivation: 0
+  enginesButton: {fileID: 54393439}
+  weaponsButton: {fileID: 224265788}
+  frontShieldsButton: {fileID: 1972414377}
+  backShieldsButton: {fileID: 1972414377}
+  topShieldsButton: {fileID: 443115385}
+  bottomShieldsButton: {fileID: 443115385}
+  leftShieldsButton: {fileID: 1997972572}
+  rightShieldsButton: {fileID: 1903157326}
+  player: {fileID: 908267997}
   controlledByGamepad: 1
 --- !u!114 &914200110
 MonoBehaviour:
@@ -3372,6 +3400,15 @@ MonoBehaviour:
   canvas: {fileID: 0}
   activateKey: 9
   unlockCursorOnActivation: 1
+  enginesButton: {fileID: 1144558316}
+  weaponsButton: {fileID: 1495120792}
+  frontShieldsButton: {fileID: 914257117}
+  backShieldsButton: {fileID: 914257117}
+  topShieldsButton: {fileID: 1962266343}
+  bottomShieldsButton: {fileID: 1962266343}
+  leftShieldsButton: {fileID: 429289074}
+  rightShieldsButton: {fileID: 1453099905}
+  player: {fileID: 1879768983}
   controlledByGamepad: 0
 --- !u!1 &1662305804
 GameObject:
@@ -3726,13 +3763,24 @@ MonoBehaviour:
   backThrusters:
   - {fileID: 828333197}
   - {fileID: 711970486}
-  acceleration: 50
-  maxSpeed: 10
+  acceleration: 250
+  maxSpeed: 50
   rotationAxisX: Mouse X
   rotationAxisY: Mouse Y
   mouseSensitivity: 1
   controlledByGamepad: 0
   gamepadSensitivity: 1
+--- !u!114 &1879768983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1979966816369787351, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+  m_PrefabInstance: {fileID: 851447173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750881034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd64ef89c0f3f6e69f76a19b482c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1903157324
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnergyManagement : MonoBehaviour
@@ -17,7 +14,7 @@ public class EnergyManagement : MonoBehaviour
      * Total energy se da doplnit power-upama 
      */
     
-    [SerializeField] private float _totalEnergy = 1.0f; //to be changed? we'll see
+    [SerializeField] private float totalEnergy = 1.0f; //to be changed? we'll see
 
     private float _enginesEnergyPart       = 2.0f/10;
     private float _weaponsEnergyPart       = 2.0f/10;
@@ -39,25 +36,26 @@ public class EnergyManagement : MonoBehaviour
         _shieldsController = GetComponent<ShieldsController>();
         if (_shieldsController == null)
             Debug.Log("missing shieldsController component!");
+        SetEnergy();
     }
 
     public void AddEnergy(float amount) //or subtract
     {
-        _totalEnergy += amount;
-        if (_totalEnergy < 0.0f)
-            _totalEnergy = 0.0f;
+        totalEnergy += amount;
+        if (totalEnergy < 0.0f)
+            totalEnergy = 0.0f;
     }
 
     private void SetEnergy()
     {
-        _gunController.SetEnergy(_weaponsEnergyPart * _totalEnergy);
-        _shipController.SetEnergy(_enginesEnergyPart * _totalEnergy);
-        _shieldsController.SetEnergy(_frontShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Front);
-        _shieldsController.SetEnergy(_backShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Back);
-        _shieldsController.SetEnergy(_topShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Top);
-        _shieldsController.SetEnergy(_bottomShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Bottom);
-        _shieldsController.SetEnergy(_leftShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Left);
-        _shieldsController.SetEnergy(_rightShieldsEnergyPart * _totalEnergy, GameUtils.ShieldType.Right);
+        _gunController.SetEnergy(_weaponsEnergyPart * totalEnergy);
+        _shipController.SetEnergy(_enginesEnergyPart * totalEnergy);
+        _shieldsController.SetEnergy(_frontShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Front);
+        _shieldsController.SetEnergy(_backShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Back);
+        _shieldsController.SetEnergy(_topShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Top);
+        _shieldsController.SetEnergy(_bottomShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Bottom);
+        _shieldsController.SetEnergy(_leftShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Left);
+        _shieldsController.SetEnergy(_rightShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Right);
     }
 
     public void EnergyToEngines()
