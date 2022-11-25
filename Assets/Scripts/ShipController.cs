@@ -148,8 +148,11 @@ public class ShipController : MonoBehaviour
 
         //brzdeni
         _rigidbody.AddForce(-_rigidbody.velocity * 2 * Time.deltaTime, ForceMode.Impulse);
-        _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 100 * Time.deltaTime);
-        
+        if (_rigidbody.angularVelocity.magnitude > 0.05f)
+            _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 100 * Time.deltaTime);
+        else
+            _rigidbody.angularVelocity = Vector3.zero;
+
         //TODO: maxspeed clipping
         
         //skryt kurzor mysi, pozdeji defaultne, ted na Esc.
