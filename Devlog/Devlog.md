@@ -28,5 +28,8 @@ Total time spent								~2.5h
 ### Jirka
 energy distribution calculation + tweaks		~0.5h
 fix projectile trail + projectile damage		~0.25h
+UI callbacks for energy							~0.5h
+
+Total time spent								~1.25h
 ### Honza
 ### Petr
