@@ -3,6 +3,7 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     private float _speed = 25.0f;
+    private float _damage = 50.0f;
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -13,6 +14,11 @@ public class ProjectileController : MonoBehaviour
     public void SetSpeed(float speed)
     {
         _speed = speed;
+    }
+
+    public void SetDamage(float damage)
+    {
+        _damage = damage;
     }
 
     void Update()

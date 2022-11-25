@@ -6,6 +6,7 @@ public class ProjectileGun : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float shootingInterval = 1.0f;
     [SerializeField] private float projectileSpeed = 25.0f;
+    [SerializeField] private float projectileDamage = 50.0f;
 
     [SerializeField] private float shiftForward = 0;
     [SerializeField] private float shiftRight = 0;
@@ -51,17 +52,26 @@ public class ProjectileGun : MonoBehaviour
 
     private void Shoot()
     {
+        if (_energyPortion < 0.001)
+            return;
         var projectile = Instantiate(
-            projectilePrefab, 
-            transform.position 
-            + shiftForward * transform.forward 
-            + shiftRight * transform.right 
-            + shiftUp * transform.up, 
-            transform.rotation
+        projectilePrefab, 
+        transform.position 
+        + shiftForward * transform.forward 
+        + shiftRight * transform.right 
+        + shiftUp * transform.up, 
+        transform.rotation
         );
-        projectile.GetComponent<ProjectileController>().SetSpeed(projectileSpeed * _energyPortion);
-        _shootingDelay = shootingInterval  * (1 / _energyPortion);
-        //TODO: upravit damage projektilu podle energie
+        var projContr = GetComponent<ProjectileController>();
+        if (projContr == null)
+            Debug.Log("missong projectile controller component");
+        else
+        {
+            projContr.SetSpeed(projectileSpeed * _energyPortion);
+            projContr.SetDamage(projectileDamage * _energyPortion);
+        }
+
+        _shootingDelay = shootingInterval * (1 / _energyPortion);
     }
 
     // Update is called once per frame

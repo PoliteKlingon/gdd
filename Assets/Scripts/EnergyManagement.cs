@@ -9,7 +9,7 @@ public class EnergyManagement : MonoBehaviour
     private ProjectileGun _gunController;
     private ShieldsController _shieldsController;
 
-    /* Nacrt toho, jak by to potom mohlo vypadat.
+    /* Nacrt:
      * celkova energie (s poskozenim bude postupne klesat) a jeji procentualni
      * distribuce mezi systemama na lodi.
      * Pri kazdem updatu energie (at uz ubytek kvuli poskozeni nebo uprava ze strany hrace)
