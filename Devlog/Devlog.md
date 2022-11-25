@@ -27,5 +27,6 @@ Total time spent								~2.5h
 ## Week 2
 ### Jirka
 energy distribution calculation + tweaks		~0.5h
+fix projectile trail + projectile damage		~0.25h
 ### Honza
 ### Petr
