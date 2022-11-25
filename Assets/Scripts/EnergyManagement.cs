@@ -7,7 +7,7 @@ public class EnergyManagement : MonoBehaviour
 {
     private ShipController _shipController;
     private ProjectileGun _gunController;
-    private GameObject _shieldsController;
+    private ShieldsController _shieldsController;
 
     /* TODO: nacrt toho, jak by to potom mohlo vypadat.
      * celkova energie (s poskozenim bude postupne klesat) a jeji procentualni
@@ -36,7 +36,9 @@ public class EnergyManagement : MonoBehaviour
         _gunController = GetComponent<ProjectileGun>();
         if (_gunController == null)
             Debug.Log("missing projectileGun component!");
-        //TODO: inicializace stitu
+        _shieldsController = GetComponent<ShieldsController>();
+        if (_shieldsController == null)
+            Debug.Log("missing shieldsController component!");
     }
 
     public void AddEnergy(float amount) //or subtract
@@ -50,7 +52,7 @@ public class EnergyManagement : MonoBehaviour
     {
         _gunController.SetEnergy(_weaponsEnergyPart * _totalEnergy);
         _shipController.SetEnergy(_enginesEnergyPart * _totalEnergy);
-        //TODO: shields
+        //TODO: shields - controller for 
     }
 
     public void EnergyToEngines()
