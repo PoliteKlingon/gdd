@@ -6,6 +6,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private KeyCode backwardKey = KeyCode.S;
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
+    [SerializeField] private KeyCode showUIButton = KeyCode.Tab;
     
     [SerializeField] private GameObject[] leftThrusters;
     [SerializeField] private GameObject[] rightThrusters;
@@ -123,8 +124,11 @@ public class ShipController : MonoBehaviour
                 GoLeft(move.x * -acceleration);
             
             //rotace
-            Vector2 rotate = _controls.Gameplay.Rotate.ReadValue<Vector2>();
-            transform.Rotate(new Vector3(gamepadSensitivity * -rotate.y, gamepadSensitivity * rotate.x, 0));
+            if (!_controls.Gameplay.ShowEnergyMenu.IsPressed())
+            {
+                Vector2 rotate = _controls.Gameplay.Rotate.ReadValue<Vector2>();
+                transform.Rotate(new Vector3(gamepadSensitivity * -rotate.y, gamepadSensitivity * rotate.x, 0));
+            }
         }
         else
         {
@@ -141,9 +145,12 @@ public class ShipController : MonoBehaviour
                 GoLeft(acceleration);
         
             //rotace mysi
-            _rotationX = Input.GetAxis(rotationAxisX);
-            _rotationY = Input.GetAxis(rotationAxisY);
-            transform.Rotate(new Vector3(mouseSensitivity * -_rotationY, mouseSensitivity * _rotationX, 0));
+            if (!Input.GetKey(showUIButton))
+            {
+                _rotationX = Input.GetAxis(rotationAxisX);
+                _rotationY = Input.GetAxis(rotationAxisY);
+                transform.Rotate(new Vector3(mouseSensitivity * -_rotationY, mouseSensitivity * _rotationX, 0));
+            }
         }
 
         //brzdeni
@@ -155,7 +162,7 @@ public class ShipController : MonoBehaviour
 
         //TODO: maxspeed clipping
         
-        //skryt kurzor mysi, pozdeji defaultne, ted na Esc.
+        //skryt kurzor mysi pomoci Esc.
         if (!controlledByGamepad && Input.GetKeyUp(KeyCode.Escape))
         {
             if (Cursor.lockState == CursorLockMode.None)

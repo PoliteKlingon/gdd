@@ -13,6 +13,7 @@ public class ProjectileGun : MonoBehaviour
     [SerializeField] private float shiftUp = 0;
     
     [SerializeField] private KeyCode shootingButton = KeyCode.Mouse0;
+    [SerializeField] private KeyCode showUIButton = KeyCode.Tab;
 
     private float _shootingDelay;
     
@@ -83,8 +84,8 @@ public class ProjectileGun : MonoBehaviour
             return;
         }
 
-        if ((!controlledByGamepad && Input.GetKey(shootingButton)) 
-            || (controlledByGamepad && _controls.Gameplay.Shoot.IsPressed()))
+        if ((!controlledByGamepad && Input.GetKey(shootingButton) && !Input.GetKey(showUIButton)) 
+            || (controlledByGamepad && _controls.Gameplay.Shoot.IsPressed() && !_controls.Gameplay.ShowEnergyMenu.IsPressed()))
         {
             Shoot();
         }

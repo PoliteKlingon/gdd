@@ -62,6 +62,15 @@ public partial class @GamepadControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ConfirmEnergyTransfer"",
+                    ""type"": ""Button"",
+                    ""id"": ""636cd1e3-3509-4f87-b587-901a3417062e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -108,6 +117,17 @@ public partial class @GamepadControls : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f526f714-9280-4bd1-a905-8b95694281ee"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ConfirmEnergyTransfer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -120,6 +140,7 @@ public partial class @GamepadControls : IInputActionCollection2, IDisposable
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
         m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+        m_Gameplay_ConfirmEnergyTransfer = m_Gameplay.FindAction("ConfirmEnergyTransfer", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,6 +204,7 @@ public partial class @GamepadControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Shoot;
     private readonly InputAction m_Gameplay_Rotate;
     private readonly InputAction m_Gameplay_Move;
+    private readonly InputAction m_Gameplay_ConfirmEnergyTransfer;
     public struct GameplayActions
     {
         private @GamepadControls m_Wrapper;
@@ -191,6 +213,7 @@ public partial class @GamepadControls : IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
         public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
+        public InputAction @ConfirmEnergyTransfer => m_Wrapper.m_Gameplay_ConfirmEnergyTransfer;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -212,6 +235,9 @@ public partial class @GamepadControls : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @ConfirmEnergyTransfer.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirmEnergyTransfer;
+                @ConfirmEnergyTransfer.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirmEnergyTransfer;
+                @ConfirmEnergyTransfer.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConfirmEnergyTransfer;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -228,6 +254,9 @@ public partial class @GamepadControls : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @ConfirmEnergyTransfer.started += instance.OnConfirmEnergyTransfer;
+                @ConfirmEnergyTransfer.performed += instance.OnConfirmEnergyTransfer;
+                @ConfirmEnergyTransfer.canceled += instance.OnConfirmEnergyTransfer;
             }
         }
     }
@@ -238,5 +267,6 @@ public partial class @GamepadControls : IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnConfirmEnergyTransfer(InputAction.CallbackContext context);
     }
 }
