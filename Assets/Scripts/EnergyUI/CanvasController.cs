@@ -121,7 +121,8 @@ public class CanvasController : MonoBehaviour
                     angle /= 45;
                     switch (angle)
                     {
-                        case 0: case 8:
+                        case 0:
+                        case 8:
                             _activeButton = weaponsButton; //TODO: nharadit podle layoutu
                             break;
                         case 1:
@@ -148,9 +149,10 @@ public class CanvasController : MonoBehaviour
                         default:
                             Debug.Log("angle is wrong!");
                             break;
-
                     }
                 }
+                else _activeButton = null;
+                //TODO: nejake zvyrazneni tlacitka, ktere je active?
             }
         }
     }
