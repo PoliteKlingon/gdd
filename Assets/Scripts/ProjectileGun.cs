@@ -65,12 +65,24 @@ public class ProjectileGun : MonoBehaviour
         );
         var projContr = projectile.GetComponent<ProjectileController>();
         if (projContr == null)
-            Debug.Log("missong projectile controller component");
+            Debug.Log("missing projectile controller component");
         else
         {
-            projContr.SetSpeed(projectileSpeed * _energyPortion);
             projContr.SetDamage(projectileDamage * _energyPortion);
         }
+
+        var projRigidbody = projectile.GetComponent<Rigidbody>();
+        if (projRigidbody == null)
+            Debug.Log("projectile rigidbody is missing");
+        else
+        {
+            var myRigidbody = GetComponent<Rigidbody>();
+            if (myRigidbody == null) 
+                Debug.Log("missing rigidbody component!");
+            else
+                projRigidbody.AddForce(myRigidbody.velocity + transform.forward * projectileSpeed * _energyPortion, ForceMode.VelocityChange);
+        }
+            
 
         _shootingDelay = shootingInterval * (1 / _energyPortion);
     }
