@@ -62,12 +62,20 @@ public class EnergyManagement : MonoBehaviour
     {
         float toAdd = 0;
         toAdd += _weaponsEnergyPart * 0.1f;
+        _weaponsEnergyPart *= 0.9f;
         toAdd += _frontShieldsEnergyPart * 0.1f;
+        _frontShieldsEnergyPart *= 0.9f;
         toAdd += _backShieldsEnergyPart * 0.1f;
+        _backShieldsEnergyPart *= 0.9f;
         toAdd += _leftShieldsEnergyPart * 0.1f;
+        _leftShieldsEnergyPart *= 0.9f;
         toAdd += _rightShieldsEnergyPart * 0.1f;
+        _rightShieldsEnergyPart *= 0.9f;
         toAdd += _topShieldsEnergyPart * 0.1f;
+        _topShieldsEnergyPart *= 0.9f;
         toAdd += _bottomShieldsEnergyPart * 0.1f;
+        _bottomShieldsEnergyPart *= 0.9f;
+        
         _enginesEnergyPart += toAdd;
         SetEnergy();
     }
@@ -76,14 +84,21 @@ public class EnergyManagement : MonoBehaviour
     {
         float toAdd = 0;
         toAdd += _enginesEnergyPart * 0.1f;
+        _enginesEnergyPart *= 0.9f;
         toAdd += _frontShieldsEnergyPart * 0.1f;
+        _frontShieldsEnergyPart *= 0.9f;
         toAdd += _backShieldsEnergyPart * 0.1f;
+        _backShieldsEnergyPart *= 0.9f;
         toAdd += _leftShieldsEnergyPart * 0.1f;
+        _leftShieldsEnergyPart *= 0.9f;
         toAdd += _rightShieldsEnergyPart * 0.1f;
+        _rightShieldsEnergyPart *= 0.9f;
         toAdd += _topShieldsEnergyPart * 0.1f;
+        _topShieldsEnergyPart *= 0.9f;
         toAdd += _bottomShieldsEnergyPart * 0.1f;
+        _backShieldsEnergyPart *= 0.9f;
+        
         _weaponsEnergyPart += toAdd;
-
         SetEnergy();
     }
     
@@ -91,39 +106,53 @@ public class EnergyManagement : MonoBehaviour
     {
         float toAdd = 0;
         toAdd += _weaponsEnergyPart * 0.1f;
+        _weaponsEnergyPart *= 0.9f;
         toAdd += _enginesEnergyPart * 0.1f;
+        _enginesEnergyPart *= 0.9f;
         
         toAdd += _frontShieldsEnergyPart * 0.1f;
+        _frontShieldsEnergyPart *= 0.9f;
         toAdd += _backShieldsEnergyPart * 0.1f;
+        _backShieldsEnergyPart *= 0.9f;
         toAdd += _leftShieldsEnergyPart * 0.1f;
+        _leftShieldsEnergyPart *= 0.9f;
         toAdd += _rightShieldsEnergyPart * 0.1f;
+        _rightShieldsEnergyPart *= 0.9f;
         toAdd += _topShieldsEnergyPart * 0.1f;
+        _topShieldsEnergyPart *= 0.9f;
         toAdd += _bottomShieldsEnergyPart * 0.1f;
+        _bottomShieldsEnergyPart *= 0.9f;
 
         switch (type)
         {
             case GameUtils.ShieldType.Back:
                 toAdd -= _backShieldsEnergyPart * 0.1f;
+                _backShieldsEnergyPart /= 0.9f;
                 _backShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Front:
                 toAdd -= _frontShieldsEnergyPart * 0.1f;
+                _frontShieldsEnergyPart /= 0.9f;
                 _frontShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Top:
                 toAdd -= _topShieldsEnergyPart * 0.1f;
+                _topShieldsEnergyPart /= 0.9f;
                 _topShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Bottom:
                 toAdd -= _bottomShieldsEnergyPart * 0.1f;
+                _bottomShieldsEnergyPart /= 0.9f;
                 _bottomShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Left:
                 toAdd -= _leftShieldsEnergyPart * 0.1f;
+                _leftShieldsEnergyPart /= 0.9f;
                 _leftShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Right:
                 toAdd -= _rightShieldsEnergyPart * 0.1f;
+                _rightShieldsEnergyPart /= 0.9f;
                 _rightShieldsEnergyPart += toAdd;
                 break;
             default:

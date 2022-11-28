@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
@@ -89,6 +91,15 @@ public class CanvasController : MonoBehaviour
 
         if (controlledByGamepad)
         {
+            enginesButton.interactable = false;
+            weaponsButton.interactable = false;
+            frontShieldsButton.interactable = false;
+            backShieldsButton.interactable = false;
+            leftShieldsButton.interactable = false;
+            rightShieldsButton.interactable = false;
+            topShieldsButton.interactable = false;
+            bottomShieldsButton.interactable = false;
+            
             if (_activeButton != null && _controls.Gameplay.ConfirmEnergyTransfer.WasReleasedThisFrame())
             {
                 if (_activeButton == enginesButton)
@@ -109,39 +120,41 @@ public class CanvasController : MonoBehaviour
                     player.EnergyToShields(GameUtils.ShieldType.Right);
             }
 
-            if (_controls.Gameplay.Rotate.IsInProgress())
+            if (_controls.Gameplay.Rotate.IsInProgress() && _controls.Gameplay.ShowEnergyMenu.IsPressed())
             {
                 Vector2 rotation = _controls.Gameplay.Rotate.ReadValue<Vector2>();
                 if (rotation.magnitude > 0.1f)
                 {
                     var angle = Mathf.Atan2(rotation.y, rotation.x);
+                    angle *= (float)(180 / Math.PI);
                     angle += 22.5f;
                     if (angle < 0)
                         angle += 360;
                     angle /= 45;
-                    switch (angle)
+                    var angleInt = (int)angle;
+                    switch (angleInt)
                     {
                         case 0:
                         case 8:
-                            _activeButton = weaponsButton; //TODO: nharadit podle layoutu
+                            _activeButton = rightShieldsButton; //TODO: nharadit podle layoutu
                             break;
                         case 1:
                             _activeButton = frontShieldsButton;
                             break;
                         case 2:
-                            _activeButton = rightShieldsButton;
+                            _activeButton = weaponsButton;
                             break;
                         case 3:
                             _activeButton = bottomShieldsButton;
                             break;
                         case 4:
-                            _activeButton = enginesButton;
+                            _activeButton = leftShieldsButton;
                             break;
                         case 5:
                             _activeButton = backShieldsButton;
                             break;
                         case 6:
-                            _activeButton = leftShieldsButton;
+                            _activeButton = enginesButton;
                             break;
                         case 7:
                             _activeButton = topShieldsButton;
@@ -150,9 +163,9 @@ public class CanvasController : MonoBehaviour
                             Debug.Log("angle is wrong!");
                             break;
                     }
+                    _activeButton.interactable = true;
                 }
                 else _activeButton = null;
-                //TODO: nejake zvyrazneni tlacitka, ktere je active?
             }
         }
     }

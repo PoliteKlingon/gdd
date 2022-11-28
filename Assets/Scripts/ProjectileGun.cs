@@ -63,7 +63,7 @@ public class ProjectileGun : MonoBehaviour
         + shiftUp * transform.up, 
         transform.rotation
         );
-        var projContr = GetComponent<ProjectileController>();
+        var projContr = projectile.GetComponent<ProjectileController>();
         if (projContr == null)
             Debug.Log("missong projectile controller component");
         else

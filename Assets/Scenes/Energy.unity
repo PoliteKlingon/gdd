@@ -1085,7 +1085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shiftForward
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shootingButton
@@ -1923,7 +1923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shiftForward
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileSpeed
@@ -2113,6 +2113,7 @@ MonoBehaviour:
   backwardKey: 0
   leftKey: 0
   rightKey: 0
+  showUIButton: 9
   leftThrusters:
   - {fileID: 462495443}
   rightThrusters:
@@ -3753,6 +3754,7 @@ MonoBehaviour:
   backwardKey: 115
   leftKey: 97
   rightKey: 100
+  showUIButton: 9
   leftThrusters:
   - {fileID: 1868557829}
   rightThrusters:
