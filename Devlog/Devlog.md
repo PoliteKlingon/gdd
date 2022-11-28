@@ -30,7 +30,8 @@ energy distribution calculation + tweaks		~0.5h
 fix projectile trail + projectile damage		~0.25h
 UI callbacks for energy							~0.5h
 controller support for energy UI				~2.5h
+projectile movement improved					~0.5h
 
-Total time spent								~3.75h
+Total time spent								~4.25h
 ### Honza
 ### Petr
