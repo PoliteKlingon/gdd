@@ -2125,7 +2125,7 @@ MonoBehaviour:
   - {fileID: 1047346514}
   - {fileID: 923242107}
   acceleration: 250
-  maxSpeed: 50
+  maxSpeed: 70
   rotationAxisX: 
   rotationAxisY: 
   mouseSensitivity: 1
@@ -3766,7 +3766,7 @@ MonoBehaviour:
   - {fileID: 828333197}
   - {fileID: 711970486}
   acceleration: 250
-  maxSpeed: 50
+  maxSpeed: 70
   rotationAxisX: Mouse X
   rotationAxisY: Mouse Y
   mouseSensitivity: 1

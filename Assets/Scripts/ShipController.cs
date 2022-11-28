@@ -160,7 +160,8 @@ public class ShipController : MonoBehaviour
         else
             _rigidbody.angularVelocity = Vector3.zero;
 
-        //TODO: maxspeed clipping
+        // clamp speed to maxSpeed
+        _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, maxSpeed * _energyPortion);
         
         //skryt kurzor mysi pomoci Esc.
         if (!controlledByGamepad && Input.GetKeyUp(KeyCode.Escape))
