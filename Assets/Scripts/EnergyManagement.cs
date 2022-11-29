@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,6 +48,18 @@ public class EnergyManagement : MonoBehaviour
     [SerializeField] public Image rightBar;
     [SerializeField] public Image frontBar;
     [SerializeField] public Image backBar;
+
+    [SerializeField] public TextMeshProUGUI engineText;
+    [SerializeField] public TextMeshProUGUI weaponText;
+    [SerializeField] public TextMeshProUGUI topText;
+    [SerializeField] public TextMeshProUGUI bottomText;
+    [SerializeField] public TextMeshProUGUI leftText;
+    [SerializeField] public TextMeshProUGUI rightText;
+    [SerializeField] public TextMeshProUGUI frontText;
+    [SerializeField] public TextMeshProUGUI backText;
+
+    [SerializeField] public TextMeshProUGUI controlText;
+
 
     private void Start()
     {
@@ -99,6 +112,17 @@ public class EnergyManagement : MonoBehaviour
         rightBar.rectTransform.localScale = new Vector3(_width,_rightShieldsEnergyPart / (_rightShieldsInitEnergy * 2), 1);
         topBar.rectTransform.localScale = new Vector3(_width, _topShieldsEnergyPart / (_topShieldsInitEnergy * 2), 1);
         bottomBar.rectTransform.localScale = new Vector3(_width,_bottomShieldsEnergyPart / (_bottomShieldsInitEnergy * 2), 1);
+
+        engineText.text = _enginesEnergyPart.ToString();
+        weaponText.text = _weaponsEnergyPart.ToString();
+        topText.text = _topShieldsEnergyPart.ToString();
+        bottomText.text = _bottomShieldsEnergyPart.ToString();
+        leftText.text = _leftShieldsEnergyPart.ToString();
+        rightText.text = _rightShieldsEnergyPart.ToString();
+        frontText.text = _frontShieldsEnergyPart.ToString();
+        backText.text = _backShieldsEnergyPart.ToString();
+
+        controlText.text = (_enginesEnergyPart + _weaponsEnergyPart + _topShieldsEnergyPart + _bottomShieldsEnergyPart + _leftShieldsEnergyPart + _rightShieldsEnergyPart + _frontShieldsEnergyPart + _backShieldsEnergyPart).ToString();
     }
 
     public void EnergyToEngines()
