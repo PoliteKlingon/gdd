@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnergyManagement : MonoBehaviour
 {
@@ -16,17 +17,50 @@ public class EnergyManagement : MonoBehaviour
     
     [SerializeField] private float totalEnergy = 1.0f; //to be changed? we'll see
 
-    private float _enginesEnergyPart       = 2.0f/10;
-    private float _weaponsEnergyPart       = 2.0f/10;
-    private float _frontShieldsEnergyPart  = 1.0f/10;
-    private float _backShieldsEnergyPart   = 1.0f/10;
-    private float _leftShieldsEnergyPart   = 1.0f/10;
-    private float _rightShieldsEnergyPart  = 1.0f/10;
-    private float _topShieldsEnergyPart    = 1.0f/10;
-    private float _bottomShieldsEnergyPart = 1.0f/10;
+
+    private float _enginesInitEnergy = 2.0f / 10;
+    private float _weaponsInitEnergy = 2.0f / 10;
+    private float _frontShieldsInitEnergy = 1.0f / 10;
+    private float _backShieldsInitEnergy = 1.0f / 10;
+    private float _leftShieldsInitEnergy = 1.0f / 10;
+    private float _rightShieldsInitEnergy = 1.0f / 10;
+    private float _topShieldsInitEnergy = 1.0f / 10;
+    private float _bottomShieldsInitEnergy = 1.0f / 10;
+
+    private float _enginesEnergyPart;
+    private float _weaponsEnergyPart;
+    private float _frontShieldsEnergyPart;
+    private float _backShieldsEnergyPart;
+    private float _leftShieldsEnergyPart;
+    private float _rightShieldsEnergyPart;
+    private float _topShieldsEnergyPart;
+    private float _bottomShieldsEnergyPart;
+
+    private int _maxHeight = 45;
+    private int _width = 1;
+
+    [SerializeField] public Image enginesBar;
+    [SerializeField] public Image weaponsBar;
+    [SerializeField] public Image topBar;
+    [SerializeField] public Image bottomBar;
+    [SerializeField] public Image leftBar;
+    [SerializeField] public Image rightBar;
+    [SerializeField] public Image frontBar;
+    [SerializeField] public Image backBar;
 
     private void Start()
     {
+
+        _enginesEnergyPart = _enginesInitEnergy;
+        _weaponsEnergyPart = _weaponsInitEnergy;
+        _frontShieldsEnergyPart = _frontShieldsInitEnergy;
+        _backShieldsEnergyPart = _backShieldsInitEnergy;
+        _leftShieldsEnergyPart = _leftShieldsInitEnergy;
+        _rightShieldsEnergyPart = _rightShieldsInitEnergy;
+        _topShieldsEnergyPart = _topShieldsInitEnergy;
+        _bottomShieldsEnergyPart = _bottomShieldsInitEnergy;
+
+
         _shipController = GetComponent<ShipController>();
         if (_shipController == null)
             Debug.Log("missing shipController component!");
@@ -56,6 +90,15 @@ public class EnergyManagement : MonoBehaviour
         _shieldsController.SetEnergy(_bottomShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Bottom);
         _shieldsController.SetEnergy(_leftShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Left);
         _shieldsController.SetEnergy(_rightShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Right);
+
+        enginesBar.rectTransform.localScale = new Vector3(_width, _enginesEnergyPart / (_enginesInitEnergy * 2), 1);
+        weaponsBar.rectTransform.localScale = new Vector3(_width, _weaponsEnergyPart / (_weaponsInitEnergy * 2), 1);
+        frontBar.rectTransform.localScale = new Vector3(_width, _frontShieldsEnergyPart / (_frontShieldsInitEnergy * 2), 1);
+        backBar.rectTransform.localScale = new Vector3(_width, _backShieldsEnergyPart / (_backShieldsInitEnergy * 2), 1);
+        leftBar.rectTransform.localScale = new Vector3(_width, _leftShieldsEnergyPart / (_leftShieldsInitEnergy * 2), 1);
+        rightBar.rectTransform.localScale = new Vector3(_width,_rightShieldsEnergyPart / (_rightShieldsInitEnergy * 2), 1);
+        topBar.rectTransform.localScale = new Vector3(_width, _topShieldsEnergyPart / (_topShieldsInitEnergy * 2), 1);
+        bottomBar.rectTransform.localScale = new Vector3(_width,_bottomShieldsEnergyPart / (_bottomShieldsInitEnergy * 2), 1);
     }
 
     public void EnergyToEngines()
