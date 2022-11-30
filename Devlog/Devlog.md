@@ -34,4 +34,12 @@ projectile movement improved					~0.5h
 
 Total time spent								~4.25h
 ### Honza
+Testing current functionality (no controller)	~0.25h
+Redesigning UI for energy management			~0.75h
+Adding Functionality to energy bars				~1h
+Reading Code of others							~0.25h
+Adding Debug Texts								~0.25h
+Trying to find bug								~0.5h
+
+Total time spent								~3h
 ### Petr
