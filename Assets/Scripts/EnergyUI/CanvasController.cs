@@ -48,6 +48,8 @@ public class CanvasController : MonoBehaviour
                 bottomShieldsButton.onClick.AddListener(() => player.EnergyToShields(GameUtils.ShieldType.Bottom));
                 leftShieldsButton.onClick.AddListener(() => player.EnergyToShields(GameUtils.ShieldType.Left));
                 rightShieldsButton.onClick.AddListener(() => player.EnergyToShields(GameUtils.ShieldType.Right));
+
+                // Here there could be hold functionality for all the buttons so energy is increasing faster
             }
         }
     }

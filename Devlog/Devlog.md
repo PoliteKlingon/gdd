@@ -41,5 +41,7 @@ Reading Code of others							~0.25h
 Adding Debug Texts								~0.25h
 Trying to find bug								~0.5h
 
-Total time spent								~3h
+Rebalancing and improving energy management		~0.5h
+
+Total time spent								~3.5h
 ### Petr
