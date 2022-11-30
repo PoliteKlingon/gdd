@@ -136,16 +136,16 @@ public class CanvasController : MonoBehaviour
                     {
                         case 0:
                         case 8:
-                            _activeButton = rightShieldsButton; //TODO: nharadit podle layoutu
+                            _activeButton = rightShieldsButton;
                             break;
                         case 1:
-                            _activeButton = frontShieldsButton;
+                            _activeButton = topShieldsButton;
                             break;
                         case 2:
                             _activeButton = weaponsButton;
                             break;
                         case 3:
-                            _activeButton = bottomShieldsButton;
+                            _activeButton = frontShieldsButton;
                             break;
                         case 4:
                             _activeButton = leftShieldsButton;
@@ -157,7 +157,7 @@ public class CanvasController : MonoBehaviour
                             _activeButton = enginesButton;
                             break;
                         case 7:
-                            _activeButton = topShieldsButton;
+                            _activeButton = bottomShieldsButton;
                             break;
                         default:
                             Debug.Log("angle is wrong!");

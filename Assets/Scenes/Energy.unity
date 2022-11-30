@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.061549366, g: 0.02974628, b: 0.052203253, a: 1}
+  m_IndirectSpecularColor: {r: 0.061656695, g: 0.029741338, b: 0.052236825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392460265242878108, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.1000061
+      value: 0.099975586
       objectReference: {fileID: 0}
     - target: {fileID: 4392460265243232915, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
       propertyPath: m_Name
@@ -227,6 +227,14 @@ PrefabInstance:
       objectReference: {fileID: 908267997}
     - target: {fileID: 4392460265243232918, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
       propertyPath: activateKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392460265243232918, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
+      propertyPath: controlledByGamepad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392460265243232918, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
+      propertyPath: unlockCursorOnActivation
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4392460265243232919, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
