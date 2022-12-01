@@ -5,6 +5,9 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     [SerializeField] private GameUtils.ShieldType type;
+    [SerializeField] private float damageDivider = 10;
+    [SerializeField] private float rocketDamage = 20;
+    [SerializeField] private Health shipHealth;
     private float _energy;
     // Start is called before the first frame update
     void Start()
@@ -27,5 +30,17 @@ public class Shield : MonoBehaviour
     public void SetEnergy(float amount)
     {
         _energy = amount;
+    }
+
+    public void DealDamage(float amount)
+    {
+        float healthDamage = 0;
+        _energy -= amount;
+        if (_energy <= 0)
+        {   
+            healthDamage = System.Math.Abs(_energy) / damageDivider;
+            _energy = 0;
+            shipHealth.DealDamage(healthDamage);
+        }
     }
 }

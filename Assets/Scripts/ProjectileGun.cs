@@ -69,6 +69,8 @@ public class ProjectileGun : MonoBehaviour
         else
         {
             projContr.SetDamage(projectileDamage * _energyPortion);
+            Debug.Log("Gameobject tag: " + gameObject.tag);
+            projContr.SetTag(gameObject.tag);
         }
 
         var projRigidbody = projectile.GetComponent<Rigidbody>();

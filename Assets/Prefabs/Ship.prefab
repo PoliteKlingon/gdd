@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
+  damageDivider: 10
+  rocketDamage: 20
+  shipHealth: {fileID: 8315841051963237139}
 --- !u!1 &765631201243422204
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  damageDivider: 10
+  rocketDamage: 20
+  shipHealth: {fileID: 8315841051963237139}
 --- !u!1 &3328346053630986765
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +426,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  damageDivider: 10
+  rocketDamage: 20
+  shipHealth: {fileID: 8315841051963237139}
 --- !u!1 &3829483359961864436
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +641,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  damageDivider: 10
+  rocketDamage: 20
+  shipHealth: {fileID: 8315841051963237139}
 --- !u!1 &4927493225370865352
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +847,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  damageDivider: 10
+  rocketDamage: 20
+  shipHealth: {fileID: 8315841051963237139}
 --- !u!1 &7939676043688635639
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +979,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  damageDivider: 10
+  rocketDamage: 20
+  shipHealth: {fileID: 8315841051963237139}
 --- !u!1 &8590585048148476770
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,6 +998,7 @@ GameObject:
   - component: {fileID: 1026266607748800260}
   - component: {fileID: 1979966816369787351}
   - component: {fileID: 3062968441010620585}
+  - component: {fileID: 8315841051963237139}
   m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
@@ -1085,10 +1104,12 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1871851070003468337, guid: 1b4e33e523d9793558119062b592e81e, type: 3}
   shootingInterval: 1
   projectileSpeed: 25
+  projectileDamage: 50
   shiftForward: 0
   shiftRight: 0
   shiftUp: 0
   shootingButton: 323
+  showUIButton: 9
   controlledByGamepad: 0
 --- !u!65 &1026266607748800260
 BoxCollider:
@@ -1115,7 +1136,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd64ef89c0f3f6e69f76a19b482c9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalEnergy: 1
+  totalEnergy: 1
+  enginesBar: {fileID: 0}
+  weaponsBar: {fileID: 0}
+  topBar: {fileID: 0}
+  bottomBar: {fileID: 0}
+  leftBar: {fileID: 0}
+  rightBar: {fileID: 0}
+  frontBar: {fileID: 0}
+  backBar: {fileID: 0}
+  engineText: {fileID: 0}
+  weaponText: {fileID: 0}
+  topText: {fileID: 0}
+  bottomText: {fileID: 0}
+  leftText: {fileID: 0}
+  rightText: {fileID: 0}
+  frontText: {fileID: 0}
+  backText: {fileID: 0}
+  controlText: {fileID: 0}
 --- !u!114 &3062968441010620585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,6 +1172,20 @@ MonoBehaviour:
   _rightShields: {fileID: 3325867572417169865}
   _topShields: {fileID: 3332184795010227023}
   _bottomShields: {fileID: 3267917346522916455}
+--- !u!114 &8315841051963237139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590585048148476770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66fa1a28ae986d84899ec57edea3c74b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthBar: {fileID: 0}
 --- !u!1001 &853796252084546613
 PrefabInstance:
   m_ObjectHideFlags: 0

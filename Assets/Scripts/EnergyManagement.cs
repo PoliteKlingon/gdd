@@ -18,6 +18,9 @@ public class EnergyManagement : MonoBehaviour
     
     [SerializeField] private float totalEnergy = 1.0f; //to be changed? we'll see
 
+    [SerializeField] public const float REMAINING_ENERGY = 0.98f;
+    [SerializeField] public const float GIVEN_ENERGY = 0.02f;
+
 
     private float _enginesInitEnergy = 2.0f / 10;
     private float _weaponsInitEnergy = 2.0f / 10;
@@ -128,21 +131,32 @@ public class EnergyManagement : MonoBehaviour
     public void EnergyToEngines()
     {
         float toAdd = 0;
-        toAdd += _weaponsEnergyPart * 0.1f;
-        _weaponsEnergyPart *= 0.9f;
-        toAdd += _frontShieldsEnergyPart * 0.1f;
-        _frontShieldsEnergyPart *= 0.9f;
-        toAdd += _backShieldsEnergyPart * 0.1f;
-        _backShieldsEnergyPart *= 0.9f;
-        toAdd += _leftShieldsEnergyPart * 0.1f;
-        _leftShieldsEnergyPart *= 0.9f;
-        toAdd += _rightShieldsEnergyPart * 0.1f;
-        _rightShieldsEnergyPart *= 0.9f;
-        toAdd += _topShieldsEnergyPart * 0.1f;
-        _topShieldsEnergyPart *= 0.9f;
-        toAdd += _bottomShieldsEnergyPart * 0.1f;
-        _bottomShieldsEnergyPart *= 0.9f;
+        toAdd += _weaponsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _frontShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _backShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _leftShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _rightShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _topShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _bottomShieldsEnergyPart * GIVEN_ENERGY;
         
+        if (toAdd + _enginesEnergyPart > _enginesInitEnergy * 2)
+        {
+            return;
+        }
+
+        _weaponsEnergyPart *= REMAINING_ENERGY;
+        _frontShieldsEnergyPart *= REMAINING_ENERGY;
+        _backShieldsEnergyPart *= REMAINING_ENERGY;
+        _leftShieldsEnergyPart *= REMAINING_ENERGY;
+        _rightShieldsEnergyPart *= REMAINING_ENERGY;
+        _topShieldsEnergyPart *= REMAINING_ENERGY;
+        _bottomShieldsEnergyPart *= REMAINING_ENERGY;
         _enginesEnergyPart += toAdd;
         SetEnergy();
     }
@@ -150,21 +164,35 @@ public class EnergyManagement : MonoBehaviour
     public void EnergyToWeapons()
     {
         float toAdd = 0;
-        toAdd += _enginesEnergyPart * 0.1f;
-        _enginesEnergyPart *= 0.9f;
-        toAdd += _frontShieldsEnergyPart * 0.1f;
-        _frontShieldsEnergyPart *= 0.9f;
-        toAdd += _backShieldsEnergyPart * 0.1f;
-        _backShieldsEnergyPart *= 0.9f;
-        toAdd += _leftShieldsEnergyPart * 0.1f;
-        _leftShieldsEnergyPart *= 0.9f;
-        toAdd += _rightShieldsEnergyPart * 0.1f;
-        _rightShieldsEnergyPart *= 0.9f;
-        toAdd += _topShieldsEnergyPart * 0.1f;
-        _topShieldsEnergyPart *= 0.9f;
-        toAdd += _bottomShieldsEnergyPart * 0.1f;
-        _bottomShieldsEnergyPart *= 0.9f;
+        toAdd += _enginesEnergyPart * GIVEN_ENERGY;
         
+        toAdd += _frontShieldsEnergyPart * GIVEN_ENERGY;
+        
+        toAdd += _backShieldsEnergyPart * GIVEN_ENERGY;
+       
+        toAdd += _leftShieldsEnergyPart * GIVEN_ENERGY;
+        
+        toAdd += _rightShieldsEnergyPart * GIVEN_ENERGY;
+        
+        toAdd += _topShieldsEnergyPart * GIVEN_ENERGY;
+        
+        toAdd += _bottomShieldsEnergyPart * GIVEN_ENERGY;
+
+        if (toAdd + _weaponsEnergyPart > _weaponsInitEnergy * 2)
+        {
+            return;
+        }
+
+
+
+        _enginesEnergyPart *= REMAINING_ENERGY;
+        _frontShieldsEnergyPart *= REMAINING_ENERGY;
+        _backShieldsEnergyPart *= REMAINING_ENERGY;
+        _leftShieldsEnergyPart *= REMAINING_ENERGY;
+        _rightShieldsEnergyPart *= REMAINING_ENERGY;
+        _topShieldsEnergyPart *= REMAINING_ENERGY;
+        _bottomShieldsEnergyPart *= REMAINING_ENERGY;
+
         _weaponsEnergyPart += toAdd;
         SetEnergy();
     }
@@ -172,54 +200,98 @@ public class EnergyManagement : MonoBehaviour
     public void EnergyToShields(GameUtils.ShieldType type)
     {
         float toAdd = 0;
-        toAdd += _weaponsEnergyPart * 0.1f;
-        _weaponsEnergyPart *= 0.9f;
-        toAdd += _enginesEnergyPart * 0.1f;
-        _enginesEnergyPart *= 0.9f;
+        toAdd += _weaponsEnergyPart * GIVEN_ENERGY;
         
-        toAdd += _frontShieldsEnergyPart * 0.1f;
-        _frontShieldsEnergyPart *= 0.9f;
-        toAdd += _backShieldsEnergyPart * 0.1f;
-        _backShieldsEnergyPart *= 0.9f;
-        toAdd += _leftShieldsEnergyPart * 0.1f;
-        _leftShieldsEnergyPart *= 0.9f;
-        toAdd += _rightShieldsEnergyPart * 0.1f;
-        _rightShieldsEnergyPart *= 0.9f;
-        toAdd += _topShieldsEnergyPart * 0.1f;
-        _topShieldsEnergyPart *= 0.9f;
-        toAdd += _bottomShieldsEnergyPart * 0.1f;
-        _bottomShieldsEnergyPart *= 0.9f;
+        toAdd += _enginesEnergyPart * GIVEN_ENERGY;
+
+        
+        toAdd += _frontShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _backShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _leftShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _rightShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _topShieldsEnergyPart * GIVEN_ENERGY;
+
+        toAdd += _bottomShieldsEnergyPart * GIVEN_ENERGY;
+
+        float energyPart = 0.0f;
+        float initEnergy = 0.0f;
+        switch (type)
+        {
+            case GameUtils.ShieldType.Front:
+                energyPart = _frontShieldsEnergyPart;
+                initEnergy = _frontShieldsInitEnergy;
+                break;
+            case GameUtils.ShieldType.Back:
+                energyPart = _backShieldsEnergyPart;
+                initEnergy = _backShieldsInitEnergy;
+                break;
+            case GameUtils.ShieldType.Top:
+                energyPart = _topShieldsEnergyPart;
+                initEnergy = _topShieldsInitEnergy;
+                break;
+            case GameUtils.ShieldType.Bottom:
+                energyPart = _bottomShieldsEnergyPart;
+                initEnergy = _bottomShieldsInitEnergy;
+                break;
+            case GameUtils.ShieldType.Left:
+                energyPart = _leftShieldsEnergyPart;
+                initEnergy = _leftShieldsInitEnergy;
+                break;
+            case GameUtils.ShieldType.Right:
+                energyPart = _rightShieldsEnergyPart;
+                initEnergy = _rightShieldsInitEnergy;
+                break;
+        }
+
+        if (toAdd + energyPart > initEnergy * 2)
+        {
+            return;
+        }
+
+
+        _weaponsEnergyPart *= REMAINING_ENERGY;
+        _enginesEnergyPart *= REMAINING_ENERGY;
+        _frontShieldsEnergyPart *= REMAINING_ENERGY;
+        _backShieldsEnergyPart *= REMAINING_ENERGY;
+        _leftShieldsEnergyPart *= REMAINING_ENERGY;
+        _rightShieldsEnergyPart *= REMAINING_ENERGY;
+        _topShieldsEnergyPart *= REMAINING_ENERGY;
+        _bottomShieldsEnergyPart *= REMAINING_ENERGY;
 
         switch (type)
         {
             case GameUtils.ShieldType.Back:
-                _backShieldsEnergyPart /= 0.9f;
-                toAdd -= _backShieldsEnergyPart * 0.1f;
+                _backShieldsEnergyPart /= REMAINING_ENERGY;
+                toAdd -= _backShieldsEnergyPart * GIVEN_ENERGY;
                 _backShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Front:
-                _frontShieldsEnergyPart /= 0.9f;
-                toAdd -= _frontShieldsEnergyPart * 0.1f;
+                _frontShieldsEnergyPart /= REMAINING_ENERGY;
+                toAdd -= _frontShieldsEnergyPart * GIVEN_ENERGY;
                 _frontShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Top:
-                _topShieldsEnergyPart /= 0.9f;
-                toAdd -= _topShieldsEnergyPart * 0.1f;
+                _topShieldsEnergyPart /= REMAINING_ENERGY;
+                toAdd -= _topShieldsEnergyPart * GIVEN_ENERGY;
                 _topShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Bottom:
-                _bottomShieldsEnergyPart /= 0.9f;
-                toAdd -= _bottomShieldsEnergyPart * 0.1f;
+                _bottomShieldsEnergyPart /= REMAINING_ENERGY;
+                toAdd -= _bottomShieldsEnergyPart * GIVEN_ENERGY;
                 _bottomShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Left:
-                _leftShieldsEnergyPart /= 0.9f;
-                toAdd -= _leftShieldsEnergyPart * 0.1f;
+                _leftShieldsEnergyPart /= REMAINING_ENERGY;
+                toAdd -= _leftShieldsEnergyPart * GIVEN_ENERGY;
                 _leftShieldsEnergyPart += toAdd;
                 break;
             case GameUtils.ShieldType.Right:
-                _rightShieldsEnergyPart /= 0.9f;
-                toAdd -= _rightShieldsEnergyPart * 0.1f;
+                _rightShieldsEnergyPart /= REMAINING_ENERGY;
+                toAdd -= _rightShieldsEnergyPart * GIVEN_ENERGY;
                 _rightShieldsEnergyPart += toAdd;
                 break;
             default:
