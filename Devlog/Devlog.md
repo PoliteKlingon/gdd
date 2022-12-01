@@ -31,8 +31,9 @@ fix projectile trail + projectile damage		~0.25h
 UI callbacks for energy							~0.5h
 controller support for energy UI				~2.5h
 projectile movement improved					~0.5h
+hotfixes (energy, projectiles)					~0.5h
 
-Total time spent								~4.25h
+Total time spent								~4.75h
 ### Honza
 Testing current functionality (no controller)	~0.25h
 Redesigning UI for energy management			~0.75h
