@@ -27,5 +27,11 @@ public class ProjectileController : MonoBehaviour
                 Debug.Log("Dealt dmg");
                 Destroy(this.gameObject);
             }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("Meteor"))
+            {
+                collision.gameObject.GetComponent<Health>().DealDamage(_damage);
+                Debug.Log("Dealt dmg to meteor");
+                Destroy(this.gameObject);
+            }
     }
 }

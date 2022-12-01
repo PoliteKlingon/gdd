@@ -16,10 +16,15 @@ public class Health : MonoBehaviour
         set
         {
             _currentHealth = value;
-            // healthBar.SetFillLevel(_currentHealth / maxHealth);
+            if (healthBar != null)
+                healthBar.SetFillLevel(_currentHealth / maxHealth);
             if (_currentHealth <= 0)
             {
-                Debug.Log("You died");
+                Debug.Log(gameObject + "died");
+                if (gameObject.layer == LayerMask.NameToLayer("Meteor"))
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
