@@ -45,3 +45,9 @@ Rebalancing and improving energy management		~0.5h
 
 Total time spent								~3.5h
 ### Petr
+Reading code of others 							~0.25h
+Designing and implementing basics of 
+health system									~1.5h
+Testing and debuging of collisions of shields	~0.25h
+
+Total time spent								~2h

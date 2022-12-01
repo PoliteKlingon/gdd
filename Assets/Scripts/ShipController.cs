@@ -7,12 +7,12 @@ public class ShipController : MonoBehaviour
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private KeyCode showUIButton = KeyCode.Tab;
-    
+
     [SerializeField] private GameObject[] leftThrusters;
     [SerializeField] private GameObject[] rightThrusters;
     [SerializeField] private GameObject[] frontThrusters;
     [SerializeField] private GameObject[] backThrusters;
-    
+
     [SerializeField] private float acceleration = 10;
     [SerializeField] private float maxSpeed = 10;
 
@@ -29,6 +29,12 @@ public class ShipController : MonoBehaviour
     private GamepadControls _controls;
     [SerializeField] private float gamepadSensitivity = 1.0f;
 
+    [SerializeField]
+    private Health health;
+    [SerializeField]
+    private float collisionDamage = 40.0f;
+
+
     private void Awake()
     {
         if (controlledByGamepad)
@@ -43,12 +49,12 @@ public class ShipController : MonoBehaviour
 
     private void OnDisable()
     {
-        if(controlledByGamepad)
+        if (controlledByGamepad)
             _controls.Gameplay.Disable();
     }
 
     private float _energyPortion = 1.0f;
-    
+
     public void SetEnergy(float portion)
     {
         _energyPortion = portion;
@@ -61,18 +67,18 @@ public class ShipController : MonoBehaviour
             thruster.SetActive(value);
         }
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         if (_rigidbody == null) Debug.Log("Missing rigidbody component!");
-        
+
         SetThrusters(frontThrusters, false);
         SetThrusters(backThrusters, false);
         SetThrusters(leftThrusters, false);
         SetThrusters(rightThrusters, false);
-        
+
         GameUtils.Instance.LockCursor();
     }
 
@@ -87,13 +93,13 @@ public class ShipController : MonoBehaviour
         _rigidbody.AddForce(transform.forward * _energyPortion * -accel * Time.deltaTime, ForceMode.Impulse);
         SetThrusters(frontThrusters, true);
     }
-    
+
     private void GoLeft(float accel)
     {
         _rigidbody.AddForce(transform.right * _energyPortion * -accel * Time.deltaTime, ForceMode.Impulse);
         SetThrusters(rightThrusters, true);
     }
-    
+
     private void GoRight(float accel)
     {
         _rigidbody.AddForce(transform.right * _energyPortion * accel * Time.deltaTime, ForceMode.Impulse);
@@ -113,16 +119,16 @@ public class ShipController : MonoBehaviour
             Vector2 move = _controls.Gameplay.Move.ReadValue<Vector2>();
             if (move.y > 0)
                 GoForward(move.y * acceleration);
-            
+
             else if (move.y < 0)
                 GoBack(move.y * -acceleration);
 
             if (move.x > 0)
                 GoRight(move.x * acceleration);
-            
+
             else if (move.x < 0)
                 GoLeft(move.x * -acceleration);
-            
+
             //rotace
             if (!_controls.Gameplay.ShowEnergyMenu.IsPressed())
             {
@@ -134,16 +140,16 @@ public class ShipController : MonoBehaviour
         {
             if (Input.GetKey(forwardKey))
                 GoForward(acceleration);
-            
+
             if (Input.GetKey(backwardKey))
                 GoBack(acceleration);
-            
+
             if (Input.GetKey(rightKey))
                 GoRight(acceleration);
-            
+
             if (Input.GetKey(leftKey))
                 GoLeft(acceleration);
-        
+
             //rotace mysi
             if (!Input.GetKey(showUIButton))
             {
@@ -162,7 +168,7 @@ public class ShipController : MonoBehaviour
 
         // clamp speed to maxSpeed
         _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, maxSpeed * _energyPortion);
-        
+
         //skryt kurzor mysi pomoci Esc.
         if (!controlledByGamepad && Input.GetKeyUp(KeyCode.Escape))
         {
