@@ -50,5 +50,12 @@ Reading code of others 							~0.25h
 Designing and implementing basics of 
 health system									~1.5h
 Testing and debuging of collisions of shields	~0.25h
+Made meteors destructible						~0.25h
+Understanding suggested energy subtraction 
+and building equation							~1h
+Reading code of others 							~0.75h										
+Creating and designing energy and health bars	~2.5h
+Discussing energy damage deal					~0.5h
+Testing of health bars and damage deal			~0.5h
 
-Total time spent								~2h
+Total time spent								~7.5h
