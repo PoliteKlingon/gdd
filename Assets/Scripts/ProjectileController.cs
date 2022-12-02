@@ -17,14 +17,20 @@ public class ProjectileController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-            Debug.Log("Projectile Tag: " + _playerTag);
-            Debug.Log("Hit tag: " + collision.gameObject.tag);
+            //Debug.Log("Projectile Tag: " + _playerTag);
+            //Debug.Log("Hit tag: " + collision.gameObject.tag);
             if (collision.gameObject.tag == _playerTag)
                 return;
             if (collision.gameObject.layer == LayerMask.NameToLayer("Shields"))
             {
                 collision.gameObject.GetComponent<Shield>().DealDamage(_damage);
-                Debug.Log("Dealt dmg");
+                //Debug.Log("Dealt dmg");
+                Destroy(this.gameObject);
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("Meteor"))
+            {
+                collision.gameObject.GetComponent<Health>().DealDamage(_damage);
+                //Debug.Log("Dealt dmg to meteor");
                 Destroy(this.gameObject);
             }
     }

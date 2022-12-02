@@ -5,9 +5,12 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private float maxHealth = 100.0f;
+    private float maxHealth = 200.0f;
+
     [SerializeField]
-    private HealthBar healthBar;
+    private float maxBasicHealth = 100.0f;
+    [SerializeField]
+    private Bar healthBar;
 
     private float _currentHealth;
     private float CurrentHealth
@@ -16,10 +19,15 @@ public class Health : MonoBehaviour
         set
         {
             _currentHealth = value;
-            // healthBar.SetFillLevel(_currentHealth / maxHealth);
+            if (healthBar != null)
+                healthBar.SetFillLevel(_currentHealth / maxHealth);
             if (_currentHealth <= 0)
             {
-                Debug.Log("You died");
+                Debug.Log(gameObject + "died");
+                if (gameObject.layer == LayerMask.NameToLayer("Meteor"))
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -27,7 +35,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentHealth = maxHealth;
+        CurrentHealth = maxBasicHealth;
     }
 
     public void DealDamage(float damage)
