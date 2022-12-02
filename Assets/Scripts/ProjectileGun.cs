@@ -44,6 +44,14 @@ public class ProjectileGun : MonoBehaviour
     {
         _energyPortion = portion;
     }
+
+    public void setPower(float damage, float speed, float interval)
+    {
+        this.projectileDamage += damage;
+        this.projectileSpeed += speed;
+        this.shootingInterval += interval;
+
+    }
     
     // Start is called before the first frame update
     void Start()

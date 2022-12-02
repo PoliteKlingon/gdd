@@ -44,7 +44,11 @@ Trying to find bug								~0.5h
 
 Rebalancing and improving energy management		~0.5h
 
-Total time spent								~3.5h
+Preparing for PowerUps							~0.5h
+Painting Power ups (too long because of errors)	~1.5h
+Implementing powerUps							~2.5h
+
+Total time spent								~8h
 ### Petr
 Reading code of others 							~0.25h
 Designing and implementing basics of 

@@ -13,6 +13,8 @@ public class ShipController : MonoBehaviour
     [SerializeField] private GameObject[] frontThrusters;
     [SerializeField] private GameObject[] backThrusters;
 
+    [SerializeField] private GameObject visual;
+
     [SerializeField] private float acceleration = 10;
     [SerializeField] private float maxSpeed = 10;
 
@@ -105,6 +107,26 @@ public class ShipController : MonoBehaviour
         _rigidbody.AddForce(transform.right * _energyPortion * accel * Time.deltaTime, ForceMode.Impulse);
         SetThrusters(leftThrusters, true);
     }
+    
+    public float getAcceleration()
+    {
+        return this.acceleration;
+    }
+
+    public float getMaxSpeed()
+    {
+        return this.maxSpeed;
+    }
+
+    public void setAcceleration(float acceleration)
+    {
+        this.acceleration += acceleration;
+    }
+
+    public void setMaxSpeed(float maxSpeed)
+    {
+        this.maxSpeed += maxSpeed;
+    }
 
     // Update is called once per frame
     void Update()
@@ -177,5 +199,15 @@ public class ShipController : MonoBehaviour
             else
                 GameUtils.Instance.UnlockCursor();
         }
+    }
+
+    public void setInvisible()
+    {
+        visual.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+    public void setVisible()
+    {
+        visual.GetComponent<MeshRenderer>().enabled = true;
     }
 }
