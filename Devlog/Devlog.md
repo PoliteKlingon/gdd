@@ -65,6 +65,8 @@ Testing of health bars and damage deal			~0.5h
 Total time spent								~7.5h
 ## Week 3
 ### Jirka
+Cinemachine										~1.25
+Fix rotation									~0.25
 ### Honza
 ### Petr
 ## Total
