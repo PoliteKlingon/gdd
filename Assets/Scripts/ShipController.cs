@@ -187,7 +187,7 @@ public class ShipController : MonoBehaviour
         //brzdeni
         _rigidbody.AddForce(-_rigidbody.velocity * 2 * Time.deltaTime, ForceMode.Impulse);
         if (_rigidbody.angularVelocity.magnitude > 0.05f)
-            _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 100 * Time.deltaTime);
+            _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 500 * Time.deltaTime);
         else
             _rigidbody.angularVelocity = Vector3.zero;
 
