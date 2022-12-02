@@ -221,6 +221,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1836180604}
+    - target: {fileID: 4392460265243232916, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4392460265243232918, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
       propertyPath: player
       value: 
@@ -2468,6 +2472,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 4392460265243232916, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4392460265243232918, guid: eca286dc51cf894478d9d41680f6942a, type: 3}
       propertyPath: player
       value: 
@@ -2657,6 +2665,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 8721953344634597931, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8721953344971760070, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
       propertyPath: m_Name
       value: EnergyBar1
