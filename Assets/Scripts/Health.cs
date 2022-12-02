@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     private Bar healthBar;
 
+    [SerializeField] private GameObject explosion;
+
     private float _currentHealth;
     private float CurrentHealth
     {
@@ -23,6 +25,11 @@ public class Health : MonoBehaviour
                 healthBar.SetFillLevel(_currentHealth / maxHealth);
             if (_currentHealth <= 0)
             {
+                if (explosion != null)
+                {
+                    var exp = Instantiate(explosion, transform.position, transform.rotation);
+                    Destroy(exp, 3.0f);
+                }
                 Debug.Log(gameObject + "died");
                 if (gameObject.layer == LayerMask.NameToLayer("Meteor"))
                 {

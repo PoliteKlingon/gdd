@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -136,6 +138,26 @@ public class EnergyManagement : MonoBehaviour
         controlText.text = (_enginesEnergyPart + _weaponsEnergyPart + _topShieldsEnergyPart + _bottomShieldsEnergyPart + _leftShieldsEnergyPart + _rightShieldsEnergyPart + _frontShieldsEnergyPart + _backShieldsEnergyPart).ToString();
     }
 
+    private void ClipToZero()
+    {
+        if (_frontShieldsEnergyPart < 0.0001)
+            _frontShieldsEnergyPart = 0.0f;
+        if (_backShieldsEnergyPart < 0.0001)
+            _backShieldsEnergyPart = 0.0f;
+        if (_topShieldsEnergyPart < 0.0001)
+            _topShieldsEnergyPart = 0.0f;
+        if (_bottomShieldsEnergyPart < 0.0001)
+            _bottomShieldsEnergyPart = 0.0f;
+        if (_leftShieldsEnergyPart < 0.0001)
+            _leftShieldsEnergyPart = 0.0f;
+        if (_rightShieldsEnergyPart < 0.0001)
+            _rightShieldsEnergyPart = 0.0f;
+        if (_weaponsEnergyPart < 0.0001)
+            _weaponsEnergyPart = 0.0f;
+        if (_enginesEnergyPart < 0.0001)
+            _enginesEnergyPart = 0.0f;
+    } 
+
     public void EnergyToEngines()
     {
         float toAdd = 0;
@@ -166,6 +188,8 @@ public class EnergyManagement : MonoBehaviour
         _topShieldsEnergyPart *= REMAINING_ENERGY;
         _bottomShieldsEnergyPart *= REMAINING_ENERGY;
         _enginesEnergyPart += toAdd;
+        
+        ClipToZero();
         SetEnergy();
     }
     
@@ -202,6 +226,8 @@ public class EnergyManagement : MonoBehaviour
         _bottomShieldsEnergyPart *= REMAINING_ENERGY;
 
         _weaponsEnergyPart += toAdd;
+        
+        ClipToZero();
         SetEnergy();
     }
     
@@ -308,6 +334,7 @@ public class EnergyManagement : MonoBehaviour
                 break;
         }
         
+        ClipToZero();
         SetEnergy();
     }
 

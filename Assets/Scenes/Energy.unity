@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.061549366, g: 0.02974628, b: 0.052203253, a: 1}
+  m_IndirectSpecularColor: {r: 0.061656695, g: 0.029741338, b: 0.052236825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -824,7 +824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileDamage
-      value: 250
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shootingInterval
@@ -1485,7 +1485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileDamage
-      value: 250
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shootingInterval
@@ -1713,7 +1713,7 @@ MonoBehaviour:
   rotationAxisY: 
   mouseSensitivity: 1
   controlledByGamepad: 1
-  gamepadSensitivity: 0.5
+  gamepadSensitivity: 1
   health: {fileID: 0}
   collisionDamage: 40
 --- !u!114 &908267997 stripped
@@ -2029,7 +2029,7 @@ MonoBehaviour:
   speedShift: 200
   shootIntervalShift: -0.01
   shootSpeedShift: 200
-  damageShift: 200
+  damageShift: 10
   powerUps:
   - {fileID: 1844683938244013190, guid: 3c9f9b7106b35c74c8c622c8df5f15ea, type: 3}
   - {fileID: 9145959643079547919, guid: fe599d70087f6184f94fe5e5ec330790, type: 3}

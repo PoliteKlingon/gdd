@@ -35,8 +35,9 @@ public class ShipController : MonoBehaviour
     private Health health;
     [SerializeField]
     private float collisionDamage = 40.0f;
-
-
+    
+    private bool _invisible = false;
+    
     private void Awake()
     {
         if (controlledByGamepad)
@@ -67,6 +68,8 @@ public class ShipController : MonoBehaviour
         foreach (GameObject thruster in thrusters)
         {
             thruster.SetActive(value);
+            if (_invisible)
+                thruster.SetActive(false);
         }
     }
 
@@ -204,10 +207,12 @@ public class ShipController : MonoBehaviour
     public void setInvisible()
     {
         visual.GetComponent<MeshRenderer>().enabled = false;
+        _invisible = true;
     }
 
     public void setVisible()
     {
         visual.GetComponent<MeshRenderer>().enabled = true;
+        _invisible = false;
     }
 }
