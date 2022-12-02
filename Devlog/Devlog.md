@@ -63,3 +63,14 @@ Discussing energy damage deal					~0.5h
 Testing of health bars and damage deal			~0.5h
 
 Total time spent								~7.5h
+## Week 3
+### Jirka
+### Honza
+### Petr
+## Total
+### Jirka
+~11.5h
+### Honza
+~10.5h
+### Petr
+~10h
