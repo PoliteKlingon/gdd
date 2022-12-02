@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8194245031050703821}
   - component: {fileID: 3722349098275513091}
   - component: {fileID: 7526687426572268459}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  maxBasicHealth: 100
   healthBar: {fileID: 0}
 --- !u!1 &6339333307507871552
 GameObject:
@@ -154,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9200285453438089946}
   - component: {fileID: 1921483423657090905}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +284,7 @@ GameObject:
   - component: {fileID: 7811162407617932225}
   - component: {fileID: 6613827725280715876}
   - component: {fileID: 8948087377732849838}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

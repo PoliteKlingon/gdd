@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5621636065181337715}
   - component: {fileID: 3203984169975062765}
   - component: {fileID: 6114529839501776122}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: SpeedPU
   m_TagString: Untagged
   m_Icon: {fileID: 0}

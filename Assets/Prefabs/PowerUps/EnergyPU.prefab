@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1139018983819103277}
   - component: {fileID: 218460117798487888}
   - component: {fileID: 5522583799650293398}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: EnergyPU
   m_TagString: Untagged
   m_Icon: {fileID: 0}

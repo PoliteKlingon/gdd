@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 778860312660305168}
   - component: {fileID: 3521657892941177471}
   - component: {fileID: 2526193454782702466}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: InvisibilityPU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
