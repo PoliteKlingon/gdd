@@ -69,6 +69,7 @@ Cinemachine										~1.25h
 Fix rotation									~0.25h
 Camera rumble									~1h
 better animations								~0.5h
+bloom											~0.75h
 ### Honza
 ### Petr
 ## Total
