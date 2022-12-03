@@ -8,10 +8,10 @@ public class ShipController : MonoBehaviour
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private KeyCode showUIButton = KeyCode.Tab;
 
-    [SerializeField] private GameObject[] leftThrusters;
-    [SerializeField] private GameObject[] rightThrusters;
-    [SerializeField] private GameObject[] frontThrusters;
-    [SerializeField] private GameObject[] backThrusters;
+    [SerializeField] private ParticleSystem[] leftThrusters;
+    [SerializeField] private ParticleSystem[] rightThrusters;
+    [SerializeField] private ParticleSystem[] frontThrusters;
+    [SerializeField] private ParticleSystem[] backThrusters;
 
     [SerializeField] private GameObject visual;
 
@@ -63,13 +63,22 @@ public class ShipController : MonoBehaviour
         _energyPortion = portion;
     }
 
-    private void SetThrusters(GameObject[] thrusters, bool value)
+    private void SetThrusters(ParticleSystem[] thrusters, bool value)
     {
-        foreach (GameObject thruster in thrusters)
+        foreach (ParticleSystem thruster in thrusters)
         {
-            thruster.SetActive(value);
+            //thruster.SetActive(value);
+            if (value)
+            {
+                thruster.Play();
+            }
+            else
+            {
+                thruster.Stop();
+            }
             if (_invisible)
-                thruster.SetActive(false);
+                //thruster.SetActive(false);
+                thruster.Stop();
         }
     }
 
@@ -159,7 +168,8 @@ public class ShipController : MonoBehaviour
             {
                 Vector2 rotate = _controls.Gameplay.Rotate.ReadValue<Vector2>();
                 //transform.Rotate(new Vector3(gamepadSensitivity * -rotate.y, gamepadSensitivity * rotate.x, 0));
-                _rigidbody.AddRelativeTorque(25 * new Vector3(gamepadSensitivity * -rotate.y, gamepadSensitivity * rotate.x, 0));
+                //_rigidbody.AddRelativeTorque(25 * new Vector3(gamepadSensitivity * -rotate.y, gamepadSensitivity * rotate.x, 0));
+                _rigidbody.angularVelocity = gamepadSensitivity * -rotate.y * transform.right + gamepadSensitivity * rotate.x * transform.up;
             }
         }
         else
@@ -181,7 +191,8 @@ public class ShipController : MonoBehaviour
             {
                 _rotationX = Input.GetAxis(rotationAxisX);
                 _rotationY = Input.GetAxis(rotationAxisY);
-                _rigidbody.AddRelativeTorque(25 * new Vector3(mouseSensitivity * -_rotationY, mouseSensitivity * _rotationX, 0));
+                //_rigidbody.AddRelativeTorque(25 * new Vector3(mouseSensitivity * -_rotationY, mouseSensitivity * _rotationX, 0));
+                _rigidbody.angularVelocity = mouseSensitivity * -_rotationY * transform.right + mouseSensitivity * _rotationX * transform.up;
                 //transform.Rotate(new Vector3(mouseSensitivity * -_rotationY, mouseSensitivity * _rotationX, 0));
             }
         }

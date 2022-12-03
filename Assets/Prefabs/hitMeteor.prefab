@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4415535800128539368}
   - component: {fileID: 6507909782155671058}
   m_Layer: 0
-  m_Name: hit
+  m_Name: hitMeteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
