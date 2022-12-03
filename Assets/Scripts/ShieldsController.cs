@@ -16,17 +16,6 @@ public class ShieldsController : MonoBehaviour
     private Shield _topShields;
     [SerializeField]
     private Shield _bottomShields;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetEnergy(float amount, GameUtils.ShieldType shieldType)
     {

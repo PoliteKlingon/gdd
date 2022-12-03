@@ -33,5 +33,9 @@ public class ProjectileController : MonoBehaviour
                 //Debug.Log("Dealt dmg to meteor");
                 Destroy(this.gameObject);
             }
+            
+            var playerCamera = collision.gameObject.GetComponent<ShakeCamera>();
+            if (playerCamera != null)
+                playerCamera.Shake();
     }
 }
