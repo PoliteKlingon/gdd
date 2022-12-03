@@ -68,6 +68,7 @@ Total time spent								~7.5h
 Cinemachine										~1.25h
 Fix rotation									~0.25h
 Camera rumble									~1h
+better animations								~0.5h
 ### Honza
 ### Petr
 ## Total
