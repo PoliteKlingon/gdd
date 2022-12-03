@@ -144,6 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe100712c5e7ee619dfa4f01367bc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitMeteor: {fileID: 4415535800128539368, guid: c77a61c98e84d1f8bbb4ad225661ec8e, type: 3}
+  hitShields: {fileID: 4415535800128539368, guid: 208df607508626e0cafb99df110bdf18, type: 3}
+  hitShip: {fileID: 4415535800128539368, guid: ae5ade62970846876bfc952aec8777ff, type: 3}
 --- !u!1 &8721064810259533761
 GameObject:
   m_ObjectHideFlags: 0

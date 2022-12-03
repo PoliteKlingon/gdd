@@ -672,9 +672,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9f9b7106b35c74c8c622c8df5f15ea, type: 3}
---- !u!1 &462495443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3289270606520141672, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &462495446 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3289270606520141590, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 651387286}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &467248608 stripped
@@ -1099,6 +1099,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8315841051963237139, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: hit
+      value: 
+      objectReference: {fileID: 8529730313433857519, guid: ae5ade62970846876bfc952aec8777ff, type: 3}
+    - target: {fileID: 8315841051963237139, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 848398260}
@@ -1290,9 +1294,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &711970486 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2793292719108223668, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &711970489 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2793292719108223690, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 851447173}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &716294763 stripped
@@ -1437,9 +1441,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
---- !u!1 &828333197 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7324268407638403688, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &828333200 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7324268407638403606, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 851447173}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &833836581 stripped
@@ -1760,6 +1764,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8315841051963237139, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+      propertyPath: hit
+      value: 
+      objectReference: {fileID: 8529730313433857519, guid: ae5ade62970846876bfc952aec8777ff, type: 3}
+    - target: {fileID: 8315841051963237139, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1171163950}
@@ -1853,9 +1861,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
---- !u!1 &898767309 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6438141884486223599, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &898767312 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6438141884486223505, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 651387286}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &908267989 stripped
@@ -1881,15 +1889,15 @@ MonoBehaviour:
   rightKey: 0
   showUIButton: 9
   leftThrusters:
-  - {fileID: 462495443}
+  - {fileID: 462495446}
   rightThrusters:
-  - {fileID: 1264467999}
+  - {fileID: 1264468002}
   frontThrusters:
-  - {fileID: 898767309}
-  - {fileID: 1864584364}
+  - {fileID: 1864584367}
+  - {fileID: 898767312}
   backThrusters:
-  - {fileID: 1047346514}
-  - {fileID: 923242107}
+  - {fileID: 923242110}
+  - {fileID: 1047346517}
   visual: {fileID: 965248334}
   acceleration: 250
   maxSpeed: 70
@@ -1977,9 +1985,9 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0.5, y: 0.5, z: 0.5}
---- !u!1 &923242107 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2793292719108223668, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &923242110 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2793292719108223690, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 651387286}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
@@ -2118,9 +2126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1047346514 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7324268407638403688, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &1047346517 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7324268407638403606, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 651387286}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1074752029 stripped
@@ -2255,9 +2263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1264467999 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7616233060389512681, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &1264468002 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7616233060389512599, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 651387286}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1265441899 stripped
@@ -2571,9 +2579,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1695626471 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6438141884486223599, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &1695626474 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6438141884486223505, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 851447173}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1705155700 stripped
@@ -2738,14 +2746,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1864584364 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7950803829287431872, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &1864584367 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7950803829287431870, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 651387286}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1868557829 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3289270606520141672, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &1868557832 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3289270606520141590, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 851447173}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1879768975 stripped
@@ -2771,15 +2779,15 @@ MonoBehaviour:
   rightKey: 100
   showUIButton: 9
   leftThrusters:
-  - {fileID: 1868557829}
+  - {fileID: 1868557832}
   rightThrusters:
-  - {fileID: 1966961160}
+  - {fileID: 1966961163}
   frontThrusters:
-  - {fileID: 1695626471}
-  - {fileID: 2027392544}
+  - {fileID: 2027392547}
+  - {fileID: 1695626474}
   backThrusters:
-  - {fileID: 828333197}
-  - {fileID: 711970486}
+  - {fileID: 711970489}
+  - {fileID: 828333200}
   visual: {fileID: 1713497801}
   acceleration: 250
   maxSpeed: 70
@@ -2902,9 +2910,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1966961160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7616233060389512681, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &1966961163 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7616233060389512599, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 851447173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976055338
@@ -3046,9 +3054,9 @@ MonoBehaviour:
     m_FrequencyGain: 1
     m_Duration: 1
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
---- !u!1 &2027392544 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7950803829287431872, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
+--- !u!198 &2027392547 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7950803829287431870, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 851447173}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2055294974 stripped

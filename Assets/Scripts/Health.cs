@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
             _currentHealth = value;
             if (healthBar != null)
                 healthBar.SetFillLevel(_currentHealth / maxHealth);
+            
             if (_currentHealth <= 0)
             {
                 if (explosion != null)
@@ -48,12 +49,5 @@ public class Health : MonoBehaviour
     public void DealDamage(float damage)
     {
         CurrentHealth -= damage;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
