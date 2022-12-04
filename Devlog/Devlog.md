@@ -70,6 +70,8 @@ Fix rotation									~0.25h
 Camera rumble									~1h
 better animations								~0.5h
 bloom											~0.75h
+
+Total time spent								~3.75h
 ### Honza
 PlayTesting and BugFinding						~0.5h
 Remaking powerUps								~0.5h
@@ -82,7 +84,7 @@ Total Time spent								~2.75h
 ### Petr
 ## Total
 ### Jirka
-~11.5h
+~15.25h
 ### Honza
 ~13.25h
 ### Petr
