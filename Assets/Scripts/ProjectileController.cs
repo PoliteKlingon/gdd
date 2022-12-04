@@ -1,6 +1,4 @@
-using System.Security.Cryptography;
 using UnityEngine;
-using Input = UnityEngine.Windows.Input;
 
 public class ProjectileController : MonoBehaviour
 {
