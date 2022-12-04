@@ -37,6 +37,15 @@ public class Health : MonoBehaviour
                     PowerUpsManager.Instance.spawnPowerUpAt(this.gameObject.transform.position);
                     Destroy(gameObject);
                 }
+
+                if (gameObject.CompareTag("Player1"))
+                {
+                    FindObjectOfType<DeadScreenCanvas>().ShowWinner("Player 2");
+                } 
+                else if (gameObject.CompareTag("Player2"))
+                {
+                    FindObjectOfType<DeadScreenCanvas>().ShowWinner("Player 1");
+                }
             }
         }
     }
