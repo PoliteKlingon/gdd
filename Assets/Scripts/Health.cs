@@ -34,6 +34,7 @@ public class Health : MonoBehaviour
                 Debug.Log(gameObject + "died");
                 if (gameObject.layer == LayerMask.NameToLayer("Meteor"))
                 {
+                    PowerUpsManager.Instance.spawnPowerUpAt(this.gameObject.transform.position);
                     Destroy(gameObject);
                 }
             }

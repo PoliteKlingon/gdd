@@ -61,7 +61,7 @@ public class PowerUpDuration
                 shipController.setMaxSpeed(PowerUpsManager.Instance.speedShift);
                 break;
             case PowerUps.HEALTH:
-                healthScript.Heal(20);
+                healthScript.Heal(PowerUpsManager.Instance.healthPlus);
                 break;
             case PowerUps.DAMAGE:
                 gunScript.setPower(PowerUpsManager.Instance.damageShift, PowerUpsManager.Instance.shootSpeedShift, PowerUpsManager.Instance.shootIntervalShift);
@@ -70,7 +70,7 @@ public class PowerUpDuration
                 shipController.setInvisible();
                 break;
             case PowerUps.ENERGY:
-                energyScript.AddEnergy(0.2f);
+                energyScript.AddEnergy(PowerUpsManager.Instance.energyPlus);
                 break;
         }
     }

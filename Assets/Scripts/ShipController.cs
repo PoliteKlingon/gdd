@@ -14,6 +14,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private ParticleSystem[] backThrusters;
 
     [SerializeField] private GameObject visual;
+    [SerializeField] private GameObject visualEmission;
 
     [SerializeField] private float acceleration = 10;
     [SerializeField] private float maxSpeed = 10;
@@ -220,12 +221,14 @@ public class ShipController : MonoBehaviour
     public void setInvisible()
     {
         visual.GetComponent<MeshRenderer>().enabled = false;
+        visualEmission.GetComponent<MeshRenderer>().enabled = false;
         _invisible = true;
     }
 
     public void setVisible()
     {
         visual.GetComponent<MeshRenderer>().enabled = true;
+        visualEmission.GetComponent<MeshRenderer>().enabled = true;
         _invisible = false;
     }
 }

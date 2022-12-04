@@ -21,9 +21,16 @@ public class PowerUpsManager : MonoBehaviour
     [SerializeField] public float shootIntervalShift = -0.3f;
     [SerializeField] public float shootSpeedShift = 200.0f;
     [SerializeField] public float damageShift = 200.0f;
+    [SerializeField] public float healthPlus = 20.0f;
+    [SerializeField] public float energyPlus = 0.2f;
     [SerializeField] List<GameObject> powerUps;
     [SerializeField] GameObject player1;
     [SerializeField] GameObject player2;
+
+    [SerializeField] public float timeBetweenSpawn = 20;
+    [SerializeField] public float spawningOdds = 0.3f; // not in use yet, TODOO
+
+    private float _spawningDelay;
 
     [SerializeField] float PowerUpDelay = 20;
     [SerializeField] int PowerUpCount = 3; // x instances of each powerup (number of powerups * x = total powerups in game)
@@ -60,6 +67,12 @@ public class PowerUpsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _spawningDelay -= Time.deltaTime;
+        if (_spawningDelay < 0.0f)
+        {
+            spawnRandomPowerUp();
+            _spawningDelay = timeBetweenSpawn;
+        }
         List<int> indexes = new List<int>();
         for(int i = 0; i < activePowers.Count; i++)
         {
@@ -81,4 +94,18 @@ public class PowerUpsManager : MonoBehaviour
         activePowers.Add(new PowerUpDuration(this.PowerUpDelay, powerUp, player));
     }
 
+
+    private void spawnRandomPowerUp()
+    {
+        spawnPowerUpAt(new Vector3(
+                    Random.Range(-EnvironmentProps.Instance.GetX(), EnvironmentProps.Instance.GetX()),
+                    Random.Range(-EnvironmentProps.Instance.GetX(), EnvironmentProps.Instance.GetX()),
+                    Random.Range(-EnvironmentProps.Instance.GetX(), EnvironmentProps.Instance.GetX())
+                ));
+    }
+
+    public void spawnPowerUpAt(Vector3 position)
+    {
+        Instantiate(powerUps[Random.Range(0,5)], position, new Quaternion(0, 0, 0, 0));
+    }
 }
