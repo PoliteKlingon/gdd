@@ -68,10 +68,11 @@ Total time spent								~7.5h
 Cinemachine										~1.25h
 Fix rotation									~0.25h
 Camera rumble									~1h
-better animations								~0.5h
-bloom											~0.75h
+Better animations								~0.5h
+Bloom											~0.75h
+Dead screen										~0.5h
 
-Total time spent								~3.75h
+Total time spent								~4.25h
 ### Honza
 PlayTesting and BugFinding						~0.5h
 Remaking powerUps								~0.5h
@@ -84,7 +85,7 @@ Total Time spent								~2.75h
 ### Petr
 ## Total
 ### Jirka
-~15.25h
+~15.75h
 ### Honza
 ~13.25h
 ### Petr
