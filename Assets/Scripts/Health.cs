@@ -50,4 +50,8 @@ public class Health : MonoBehaviour
     {
         CurrentHealth -= damage;
     }
+    public void Heal(float healthPoints)
+    {
+        DealDamage(-healthPoints);
+    }
 }

@@ -50,6 +50,8 @@ public class PowerUpDuration
     {
         ShipController shipController = player.GetComponentInParent<ShipController>();
         ProjectileGun gunScript = player.GetComponentInParent<ProjectileGun>();
+        EnergyManagement energyScript = player.GetComponentInParent<EnergyManagement>();
+        Health healthScript = player.GetComponentInParent<Health>();
 
         Debug.Log(shipController == null);
         switch (powerUp)
@@ -59,6 +61,7 @@ public class PowerUpDuration
                 shipController.setMaxSpeed(PowerUpsManager.Instance.speedShift);
                 break;
             case PowerUps.HEALTH:
+                healthScript.Heal(20);
                 break;
             case PowerUps.DAMAGE:
                 gunScript.setPower(PowerUpsManager.Instance.damageShift, PowerUpsManager.Instance.shootSpeedShift, PowerUpsManager.Instance.shootIntervalShift);
@@ -67,6 +70,7 @@ public class PowerUpDuration
                 shipController.setInvisible();
                 break;
             case PowerUps.ENERGY:
+                energyScript.AddEnergy(0.2f);
                 break;
         }
     }

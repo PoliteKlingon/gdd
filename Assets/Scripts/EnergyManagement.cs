@@ -34,14 +34,14 @@ public class EnergyManagement : MonoBehaviour
     private float _topShieldsInitEnergy = 1.0f / 10;
     private float _bottomShieldsInitEnergy = 1.0f / 10;
 
-    private float _enginesEnergyPart;
-    private float _weaponsEnergyPart;
-    private float _frontShieldsEnergyPart;
-    private float _backShieldsEnergyPart;
-    private float _leftShieldsEnergyPart;
-    private float _rightShieldsEnergyPart;
-    private float _topShieldsEnergyPart;
-    private float _bottomShieldsEnergyPart;
+    [SerializeField]  private float _enginesEnergyPart;
+    [SerializeField] private float _weaponsEnergyPart;
+    [SerializeField] private float _frontShieldsEnergyPart;
+    [SerializeField] private float _backShieldsEnergyPart;
+    [SerializeField] private float _leftShieldsEnergyPart;
+    [SerializeField] private float _rightShieldsEnergyPart;
+    [SerializeField] private float _topShieldsEnergyPart;
+    [SerializeField] private float _bottomShieldsEnergyPart;
 
     private int _maxHeight = 45;
     private int _width = 1;
@@ -103,6 +103,7 @@ public class EnergyManagement : MonoBehaviour
         totalEnergy += amount;
         if (totalEnergy < 0.0f)
             totalEnergy = 0.0f;
+        energyBar.SetFillLevel(totalEnergy * BASIC_FILL_LEVEL);
     }
 
     private void SetEnergy()
@@ -116,14 +117,14 @@ public class EnergyManagement : MonoBehaviour
         _shieldsController.SetEnergy(_leftShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Left);
         _shieldsController.SetEnergy(_rightShieldsEnergyPart * totalEnergy, GameUtils.ShieldType.Right);
 
-        enginesBar.rectTransform.localScale = new Vector3(_width, _enginesEnergyPart / (_enginesInitEnergy * 2), 1);
-        weaponsBar.rectTransform.localScale = new Vector3(_width, _weaponsEnergyPart / (_weaponsInitEnergy * 2), 1);
-        frontBar.rectTransform.localScale = new Vector3(_width, _frontShieldsEnergyPart / (_frontShieldsInitEnergy * 2), 1);
-        backBar.rectTransform.localScale = new Vector3(_width, _backShieldsEnergyPart / (_backShieldsInitEnergy * 2), 1);
-        leftBar.rectTransform.localScale = new Vector3(_width, _leftShieldsEnergyPart / (_leftShieldsInitEnergy * 2), 1);
-        rightBar.rectTransform.localScale = new Vector3(_width,_rightShieldsEnergyPart / (_rightShieldsInitEnergy * 2), 1);
-        topBar.rectTransform.localScale = new Vector3(_width, _topShieldsEnergyPart / (_topShieldsInitEnergy * 2), 1);
-        bottomBar.rectTransform.localScale = new Vector3(_width,_bottomShieldsEnergyPart / (_bottomShieldsInitEnergy * 2), 1);
+        enginesBar.rectTransform.localScale = new Vector3(_width, _enginesEnergyPart * totalEnergy / (_enginesInitEnergy * 2), 1);
+        weaponsBar.rectTransform.localScale = new Vector3(_width, _weaponsEnergyPart * totalEnergy / (_weaponsInitEnergy * 2), 1);
+        frontBar.rectTransform.localScale = new Vector3(_width, _frontShieldsEnergyPart * totalEnergy / (_frontShieldsInitEnergy * 2), 1);
+        backBar.rectTransform.localScale = new Vector3(_width, _backShieldsEnergyPart * totalEnergy / (_backShieldsInitEnergy * 2), 1);
+        leftBar.rectTransform.localScale = new Vector3(_width, _leftShieldsEnergyPart * totalEnergy / (_leftShieldsInitEnergy * 2), 1);
+        rightBar.rectTransform.localScale = new Vector3(_width, _rightShieldsEnergyPart * totalEnergy / (_rightShieldsInitEnergy * 2), 1);
+        topBar.rectTransform.localScale = new Vector3(_width, _topShieldsEnergyPart * totalEnergy / (_topShieldsInitEnergy * 2), 1);
+        bottomBar.rectTransform.localScale = new Vector3(_width, _bottomShieldsEnergyPart * totalEnergy / (_bottomShieldsInitEnergy * 2), 1);
         energyBar.SetFillLevel(totalEnergy * BASIC_FILL_LEVEL);
 
         engineText.text = _enginesEnergyPart.ToString();
@@ -175,7 +176,7 @@ public class EnergyManagement : MonoBehaviour
 
         toAdd += _bottomShieldsEnergyPart * GIVEN_ENERGY;
         
-        if (toAdd + _enginesEnergyPart > _enginesInitEnergy * 2)
+        if ((toAdd + _enginesEnergyPart) * totalEnergy > _enginesInitEnergy * 2)
         {
             return;
         }
@@ -210,7 +211,7 @@ public class EnergyManagement : MonoBehaviour
         
         toAdd += _bottomShieldsEnergyPart * GIVEN_ENERGY;
 
-        if (toAdd + _weaponsEnergyPart > _weaponsInitEnergy * 2)
+        if ((toAdd + _weaponsEnergyPart) * totalEnergy > _weaponsInitEnergy * 2)
         {
             return;
         }
@@ -282,7 +283,7 @@ public class EnergyManagement : MonoBehaviour
                 break;
         }
 
-        if (toAdd + energyPart > initEnergy * 2)
+        if ((toAdd + energyPart) * totalEnergy > initEnergy * 2)
         {
             return;
         }
