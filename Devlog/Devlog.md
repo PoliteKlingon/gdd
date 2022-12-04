@@ -71,11 +71,19 @@ Camera rumble									~1h
 better animations								~0.5h
 bloom											~0.75h
 ### Honza
+PlayTesting and BugFinding						~0.5h
+Remaking powerUps								~0.5h
+debugging shield/ship collisions				~0.5h
+making new powerUps								~0.25h
+implementing powerUp spawning from meteors		~0.75h
+implementing powerUp spawning random in area	~0.25h
+
+Total Time spent								~2.75h
 ### Petr
 ## Total
 ### Jirka
 ~11.5h
 ### Honza
-~10.5h
+~13.25h
 ### Petr
 ~10h
