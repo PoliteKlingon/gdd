@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1871851070003468337, guid: 1b4e33e523d9793558119062b592e81e, type: 3}
   shootingInterval: 1
-  projectileSpeed: 25
+  projectileSpeed: 40
   projectileDamage: 50
   shiftForward: 0
   shiftRight: 0
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   explosion: {fileID: 0}
   source: {fileID: 1655801122096046159}
   hitClip: {fileID: 8300000, guid: aea6dfb8ae67a2026a3438301bf30d5e, type: 3}
-  explosionClip: {fileID: 8300000, guid: 122ca0ece01047b02bb23dabe69be731, type: 3}
+  explosionClip: {fileID: 8300000, guid: 27467146363d116b1827aad1a9483019, type: 3}
 --- !u!1001 &853796252084546613
 PrefabInstance:
   m_ObjectHideFlags: 0

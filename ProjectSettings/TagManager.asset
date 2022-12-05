@@ -21,10 +21,10 @@ TagManager:
   - Player 1 Camera
   - Player 2 Camera
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Projectile Player 1
+  - Projectile Player 2
+  - Ship Player 1
+  - Ship Player 2
   - 
   - 
   - 

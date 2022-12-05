@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3395506665747855196}
   - component: {fileID: 343153190216407480}
   - component: {fileID: 2099407455104380700}
-  m_Layer: 10
-  m_Name: Projectile
+  m_Layer: 14
+  m_Name: Projectile player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1871851070003468337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3253961619304011939}
@@ -117,7 +117,7 @@ CapsuleCollider:
   m_Radius: 1
   m_Height: 17
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2099407455104380700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 3253961619304011939}
   - component: {fileID: 9046275825198549080}
   - component: {fileID: 7190405355985908873}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4957,7 +4957,7 @@ GameObject:
   - component: {fileID: 8230739415642005078}
   - component: {fileID: 5014387059673715187}
   - component: {fileID: 7093830491391534393}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

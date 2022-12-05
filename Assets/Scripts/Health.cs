@@ -51,11 +51,13 @@ public class Health : MonoBehaviour
                     FindObjectOfType<DeadScreenCanvas>().ShowWinner("Player 1");
                 }
 
-                if (source != null && explosionClip != null)
+                if (explosionClip != null)
                 {
-                    source.pitch = Random.Range(0.65f, 1.25f);
-                    source.volume = Random.Range(0.40f, 0.60f);
-                    source.PlayOneShot(explosionClip);
+                    AudioSource expSource = GameObject.Find("ExpAudioSource").GetComponent<AudioSource>();
+                    expSource.pitch = Random.Range(0.65f, 1.25f);
+                    expSource.volume = Random.Range(0.70f, 0.90f);
+                    expSource.PlayOneShot(explosionClip);
+                    Debug.Log("bum");
                 }
             }
             else
@@ -63,7 +65,7 @@ public class Health : MonoBehaviour
                 if (source != null && hitClip != null)
                 {
                     source.pitch = Random.Range(0.65f, 1.25f);
-                    source.volume = Random.Range(0.40f, 0.60f);
+                    source.volume = Random.Range(0.70f, 0.90f);
                     source.PlayOneShot(hitClip);
                 }
             }
