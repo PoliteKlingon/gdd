@@ -30,6 +30,9 @@ public class PowerUpsManager : MonoBehaviour
     [SerializeField] public float timeBetweenSpawn = 20;
     [SerializeField] public float spawningOdds = 0.3f; // not in use yet, TODOO
 
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip clip;
+
     private float _spawningDelay;
 
     [SerializeField] float PowerUpDelay = 20;
@@ -92,6 +95,13 @@ public class PowerUpsManager : MonoBehaviour
     public void assignPower(GameObject player, PowerUps powerUp)
     {
         activePowers.Add(new PowerUpDuration(this.PowerUpDelay, powerUp, player));
+        
+        if (source != null && clip != null)
+        {
+            source.pitch = Random.Range(0.65f, 1.25f);
+            source.volume = Random.Range(0.40f, 0.60f);
+            source.PlayOneShot(clip);
+        }
     }
 
 

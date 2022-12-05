@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ProjectileGun : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class ProjectileGun : MonoBehaviour
     
     [SerializeField] private KeyCode shootingButton = KeyCode.Mouse0;
     [SerializeField] private KeyCode showUIButton = KeyCode.Tab;
+
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip clip;
 
     private float _shootingDelay;
     
@@ -92,8 +96,14 @@ public class ProjectileGun : MonoBehaviour
             else
                 projRigidbody.AddForce(myRigidbody.velocity + transform.forward * projectileSpeed * _energyPortion, ForceMode.VelocityChange);
         }
-            
 
+        if (source != null && clip != null)
+        {
+            source.pitch = Random.Range(0.65f, 1.25f);
+            source.volume = Random.Range(0.40f, 0.60f);
+            source.PlayOneShot(clip);
+        }
+        
         _shootingDelay = shootingInterval * (1 / _energyPortion);
     }
 

@@ -14,6 +14,10 @@ public class Health : MonoBehaviour
 
     [SerializeField] private GameObject explosion;
 
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip hitClip;
+    [SerializeField] private AudioClip explosionClip;
+
     private float _currentHealth;
     private float CurrentHealth
     {
@@ -45,6 +49,22 @@ public class Health : MonoBehaviour
                 else if (gameObject.CompareTag("Player2"))
                 {
                     FindObjectOfType<DeadScreenCanvas>().ShowWinner("Player 1");
+                }
+
+                if (source != null && explosionClip != null)
+                {
+                    source.pitch = Random.Range(0.65f, 1.25f);
+                    source.volume = Random.Range(0.40f, 0.60f);
+                    source.PlayOneShot(explosionClip);
+                }
+            }
+            else
+            {
+                if (source != null && hitClip != null)
+                {
+                    source.pitch = Random.Range(0.65f, 1.25f);
+                    source.volume = Random.Range(0.40f, 0.60f);
+                    source.PlayOneShot(hitClip);
                 }
             }
         }

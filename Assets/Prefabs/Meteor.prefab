@@ -146,7 +146,9 @@ MonoBehaviour:
   maxBasicHealth: 16
   healthBar: {fileID: 0}
   explosion: {fileID: 8529730313433857519, guid: f75ff8d22f47fb8e8883aacf2c7906ec, type: 3}
-  hit: {fileID: 8529730313433857519, guid: c77a61c98e84d1f8bbb4ad225661ec8e, type: 3}
+  source: {fileID: 1921483423657090905}
+  hitClip: {fileID: 8300000, guid: aea6dfb8ae67a2026a3438301bf30d5e, type: 3}
+  explosionClip: {fileID: 8300000, guid: 122ca0ece01047b02bb23dabe69be731, type: 3}
 --- !u!1 &6339333307507871552
 GameObject:
   m_ObjectHideFlags: 0

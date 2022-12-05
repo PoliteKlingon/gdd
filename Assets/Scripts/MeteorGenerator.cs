@@ -23,7 +23,7 @@ public class MeteorGenerator : MonoBehaviour
                     Random.Range(-EnvironmentProps.Instance.GetX(), EnvironmentProps.Instance.GetX()),
                     Random.Range(-EnvironmentProps.Instance.GetX(), EnvironmentProps.Instance.GetX())
                 ),
-                new Quaternion(0, 0, 0, 0)
+                new Quaternion(Random.Range(-360, 360), Random.Range(-360, 360), Random.Range(-360, 360), Random.Range(-360, 360))
             );
             var scale = Random.Range(minScale, maxScale);
             meteor.transform.localScale = new Vector3(scale, scale, scale);
