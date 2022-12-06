@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetController : MonoBehaviour
@@ -17,14 +14,10 @@ public class TargetController : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        //TODO: remove unwanted layers fom the raycast target
-        if (Physics.Raycast(ship.transform.position + ship.transform.forward * defaultCastShift, ship.transform.forward, out hit, Mathf.Infinity))
-        {
+        int mask = (1 << 14) | (1 << 15) | (1 << 13); //mask layer that should not be hit by raycast
+        if (Physics.Raycast(ship.transform.position + ship.transform.forward * defaultCastShift, ship.transform.forward, out hit, Mathf.Infinity, ~mask))
             transform.position = hit.point;
-        }
         else
-        {
             transform.position = ship.transform.position + ship.transform.forward * defaultShift;
-        }
     }
 }
