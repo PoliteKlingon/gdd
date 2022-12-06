@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField]
     private Bar healthBar;
 
-    [SerializeField] private GameObject explosion;
+    [SerializeField] public GameObject explosion;
 
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip hitClip;

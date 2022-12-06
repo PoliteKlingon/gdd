@@ -15,6 +15,7 @@ public class DeadScreenCanvas : MonoBehaviour
         {
             canvas.enabled = false;
             SceneManager.LoadScene(0);
+            GameUtils.Instance.LockCursor();
         });
     }
 
@@ -22,5 +23,6 @@ public class DeadScreenCanvas : MonoBehaviour
     {
         canvas.enabled = true;
         winText.text = winner + " won!";
+        GameUtils.Instance.UnlockCursor();
     }
 }

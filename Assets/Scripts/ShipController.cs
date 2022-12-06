@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class ShipController : MonoBehaviour
@@ -32,6 +33,11 @@ public class ShipController : MonoBehaviour
     private GamepadControls _controls;
     [SerializeField] private float gamepadSensitivity = 1.0f;
 
+    [SerializeField] private Canvas warningCanvas;
+    [SerializeField] private TMP_Text timeLeft;
+    [SerializeField] private float deathTimeout = 10.0f;
+    private float _deathTimeout;
+    
     [SerializeField]
     private Health health;
     [SerializeField]
@@ -95,6 +101,8 @@ public class ShipController : MonoBehaviour
         SetThrusters(rightThrusters, false);
 
         GameUtils.Instance.LockCursor();
+
+        _deathTimeout = deathTimeout;
     }
 
     private void GoForward(float accel)
@@ -215,6 +223,36 @@ public class ShipController : MonoBehaviour
                 GameUtils.Instance.LockCursor();
             else
                 GameUtils.Instance.UnlockCursor();
+        }
+
+        if (_deathTimeout < 0)
+        {
+            if (gameObject.CompareTag("Player1"))
+            {
+                FindObjectOfType<DeadScreenCanvas>().ShowWinner("Player 2");
+            } 
+            else if (gameObject.CompareTag("Player2"))
+            {
+                FindObjectOfType<DeadScreenCanvas>().ShowWinner("Player 1");
+            }
+
+            var eff = Instantiate(GetComponent<Health>().explosion, transform.position, transform.rotation);
+            Destroy(eff, 3.0f);
+            Destroy(gameObject);
+        }
+
+        if (Mathf.Abs(transform.position.x) > EnvironmentProps.Instance.GetX()
+            || Mathf.Abs(transform.position.y) > EnvironmentProps.Instance.GetY()
+            || Mathf.Abs(transform.position.z) > EnvironmentProps.Instance.GetZ())
+        {
+            warningCanvas.enabled = true;
+            timeLeft.text = ((int)_deathTimeout).ToString();
+            _deathTimeout -= Time.deltaTime;
+        }
+        else
+        {
+            warningCanvas.enabled = false;
+            _deathTimeout = deathTimeout;
         }
     }
 
