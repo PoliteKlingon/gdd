@@ -73,8 +73,9 @@ Bloom											~0.75h
 Dead screen										~0.5h
 Tweaks											~2h
 Target											~1.25h
+Leaving area									~1h
 
-Total time spent								~7.5h
+Total time spent								~8.5h
 ### Honza
 PlayTesting and BugFinding						~0.5h
 Remaking powerUps								~0.5h
@@ -91,7 +92,7 @@ Adding simple crosshair dot						~0.25h
 Total Time spent								~0.5h
 ## Total
 ### Jirka
-~19h
+~20h
 ### Honza
 ~13.25h
 ### Petr
