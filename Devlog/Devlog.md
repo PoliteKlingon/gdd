@@ -72,6 +72,7 @@ Better animations								~0.5h
 Bloom											~0.75h
 Dead screen										~0.5h
 Tweaks											~2h
+Target											~1h
 
 Total time spent								~6.25h
 ### Honza
@@ -90,7 +91,7 @@ Adding simple crosshair dot						~0.25h
 Total Time spent								~0.5h
 ## Total
 ### Jirka
-~17.75h
+~18.75h
 ### Honza
 ~13.25h
 ### Petr
