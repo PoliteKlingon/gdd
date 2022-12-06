@@ -702,6 +702,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 1750881034}
+  defaultCastShift: 3
+  defaultShift: 50
 --- !u!1 &349550397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,6 +3237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 908267989}
+  defaultCastShift: 3
+  defaultShift: 50
 --- !u!1 &1244964045
 GameObject:
   m_ObjectHideFlags: 0
