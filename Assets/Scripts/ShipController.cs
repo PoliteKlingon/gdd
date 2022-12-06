@@ -208,10 +208,10 @@ public class ShipController : MonoBehaviour
 
         //brzdeni
         _rigidbody.AddForce(-_rigidbody.velocity * 2 * Time.deltaTime, ForceMode.Impulse);
-        if (_rigidbody.angularVelocity.magnitude > 0.05f)
+        /*if (_rigidbody.angularVelocity.magnitude > 0.05f)
             _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 500 * Time.deltaTime);
         else
-            _rigidbody.angularVelocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;*/
 
         // clamp speed to maxSpeed
         _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, maxSpeed * _energyPortion);

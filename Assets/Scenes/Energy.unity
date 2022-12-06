@@ -2873,7 +2873,7 @@ MonoBehaviour:
   rotationAxisY: 
   mouseSensitivity: 1
   controlledByGamepad: 1
-  gamepadSensitivity: 1
+  gamepadSensitivity: 0.5
   warningCanvas: {fileID: 2102208177}
   timeLeft: {fileID: 1677624323}
   deathTimeout: 20
