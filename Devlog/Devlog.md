@@ -84,6 +84,10 @@ implementing powerUp spawning random in area	~0.25h
 
 Total Time spent								~2.75h
 ### Petr
+Fix HUD scaling									~0.25h
+Adding simple crosshair dot						~0.25h
+
+Total Time spent								~0.5h
 ## Total
 ### Jirka
 ~17.75h
