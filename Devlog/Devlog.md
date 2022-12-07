@@ -88,8 +88,9 @@ Total Time spent								~2.75h
 ### Petr
 Fix HUD scaling									~0.25h
 Adding simple crosshair dot						~0.25h
+Target arrows WIP								~5h
 
-Total Time spent								~0.5h
+Total Time spent								~5.5h
 ## Total
 ### Jirka
 ~20h
