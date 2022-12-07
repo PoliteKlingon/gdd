@@ -14,6 +14,7 @@ public class TargetPointer : MonoBehaviour
     private static readonly Vector3 viewportCenter = new Vector3(0.5f, 0.5f, 0);
     private Vector3 screenBottomLeft;
     private Vector3 screenTopRight;
+    private Vector3 screenCenter;
     
     // Start is called before the first frame update
     void Start()
@@ -31,15 +32,17 @@ public class TargetPointer : MonoBehaviour
         else
         {
             Debug.LogError("NO PLAYER SCREEN ATTACHED TO SCRIPT!");
+            return;
         }
+        screenCenter = (screenBottomLeft + screenTopRight) / 2; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 viewportPosition = GetViewportPosition();
+        Vector3 screenPos = GetScreenPosition();
         Color color = gameObject.GetComponent<Image>().color; 
-        if (IsTargetVisible(viewportPosition))
+        if (IsTargetVisible(screenPos))
         {
             // We don't want to see pointer when target is on screen
             //gameObject.GetComponent<CanvasRenderer>().cull = true;
@@ -51,54 +54,53 @@ public class TargetPointer : MonoBehaviour
             //gameObject.GetComponent<CanvasRenderer>().cull = true;
             gameObject.GetComponent<Image>().color = new Color(color.r, color.g, color.b, 255);
 
-            // Viewport position needs to be flipped, when target is behind us
-            if (viewportPosition.z < 0)
+            // Screen position needs to be flipped, when target is behind us
+            if (screenPos.z < 0)
             {
-                viewportPosition *= -1;
+                screenPos *= -1;
             }
 
-            // make 00 the center of viewport(player screen) instead of bottom left
-            viewportPosition -= viewportCenter;
+            // make 00 the center of player screen instead of bottom left
+            screenPos -= screenCenter;
 
             // find angle from center of viewport(player screen) to mouse position
-            float angle = Mathf.Atan2(viewportPosition.y, viewportPosition.x);
+            float angle = Mathf.Atan2(screenPos.y, screenPos.x);
             angle -= 90 * Mathf.Deg2Rad;
 
             float cos = Mathf.Cos(angle);
             float sin = -Mathf.Sin(angle);
 
-            viewportPosition = viewportCenter + new Vector3(sin * 80, cos*80, 0);
+            screenPos = screenCenter + new Vector3(sin * 150, cos*150, 0);
 
             // y = ax + b
             float a = cos / sin;
 
-            Vector3 viewportBounds = viewportCenter * 0.98f;
+            Vector3 screenBounds = new Vector3(Screen.width/4, Screen.height/2, 0) * 1.8f; 
 
             if (cos > 0)
             {
-                viewportPosition = new Vector3(viewportBounds.y/a, viewportBounds.y, 0);
+                screenPos = new Vector3(screenBounds.y/a, screenBounds.y, 0);
             }
             else
             {
-                viewportPosition = new Vector3(-viewportBounds.y/a, -viewportBounds.y, 0);
+                screenPos = new Vector3(-screenBounds.y/a, -screenBounds.y, 0);
             }
 
-            if (viewportPosition.x > viewportBounds.x)
+            if (screenPos.x > screenBounds.x)
             {
-                viewportPosition = new Vector3(viewportBounds.x, viewportBounds.x*a, 0);
+                screenPos = new Vector3(screenBounds.x, screenBounds.x*a, 0);
             }
-            else if (viewportPosition.x < -viewportBounds.x)
+            else if (screenPos.x < -screenBounds.x)
             {
-                viewportPosition = new Vector3(-viewportBounds.x, -viewportBounds.x*a, 0);
+                screenPos = new Vector3(-screenBounds.x, -screenBounds.x*a, 0);
             }
 
-            //viewportPosition += viewportCenter;
-            Vector3 screenPosition = playerCamera.ViewportToScreenPoint(viewportPosition);
+            //screenPos += screenCenter;
 
-            //transform.localPosition = screenPosition;
+            transform.localPosition = screenPos;
             transform.localRotation = Quaternion.Euler(0, 0, angle*Mathf.Rad2Deg);
-            RectTransform rt = gameObject.GetComponent<RectTransform>();
-            rt.localPosition = screenPosition;
+            // RectTransform rt = gameObject.GetComponent<RectTransform>();
+            // rt.localPosition = screenPos;
 
             // float x = screenpos.x;
             // float y = screenpos.y;
@@ -138,9 +140,25 @@ public class TargetPointer : MonoBehaviour
         return viewportPosition;
     }
 
-    private bool IsTargetVisible(Vector3 viewportPosition)
+    private Vector3 GetScreenPosition()
     {
-        bool isTargetVisible = viewportPosition.z > 0 && viewportPosition.x >= 0 && viewportPosition.x <= 1 && viewportPosition.y >= 0 && viewportPosition.y <= 1;
+        Vector3 screenPosition = playerCamera.WorldToScreenPoint(target.transform.position);
+        return screenPosition;
+    }
+
+    private bool IsTargetVisibleView(Vector3 viewportPosition)
+    {
+        bool isTargetVisible = viewportPosition.z > 0 && 
+                               viewportPosition.x >= 0 && viewportPosition.x <= 1 && 
+                               viewportPosition.y >= 0 && viewportPosition.y <= 1;
+        return isTargetVisible;
+    }
+
+    private bool IsTargetVisible(Vector3 screenPosition)
+    {
+        bool isTargetVisible = screenPosition.z > 0 && 
+                               screenPosition.x > screenBottomLeft.x && screenPosition.x < screenTopRight.x && 
+                               screenPosition.y > screenBottomLeft.y && screenPosition.y < screenTopRight.y;
         return isTargetVisible;
     }
 }
