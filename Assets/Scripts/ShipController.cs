@@ -8,6 +8,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private KeyCode showUIButton = KeyCode.Tab;
+    [SerializeField] private KeyCode handbrakeKey = KeyCode.Space;
 
     [SerializeField] private ParticleSystem[] leftThrusters;
     [SerializeField] private ParticleSystem[] rightThrusters;
@@ -20,6 +21,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float acceleration = 10;
     [SerializeField] private float maxSpeed = 10;
     [SerializeField] private float braking = 2.0f;
+    private float _handbrake = 100.0f;
 
     private Rigidbody _rigidbody;
 
@@ -129,6 +131,11 @@ public class ShipController : MonoBehaviour
         _rigidbody.AddForce(transform.right * _energyPortion * accel * Time.deltaTime, ForceMode.Impulse);
         SetThrusters(leftThrusters, true);
     }
+
+    private void HandBrake()
+    {
+        _rigidbody.AddForce(-_rigidbody.velocity * _handbrake * Time.deltaTime, ForceMode.Impulse);
+    }
     
     public float getAcceleration()
     {
@@ -172,6 +179,9 @@ public class ShipController : MonoBehaviour
 
             else if (move.x < 0)
                 GoLeft(move.x * -acceleration);
+            
+            if (_controls.Gameplay.Handbrake.IsPressed())
+                HandBrake();
 
             //rotace
             if (!_controls.Gameplay.ShowEnergyMenu.IsPressed())
@@ -195,6 +205,9 @@ public class ShipController : MonoBehaviour
 
             if (Input.GetKey(leftKey))
                 GoLeft(acceleration);
+            
+            if (Input.GetKey(handbrakeKey))
+                HandBrake();
 
             //rotace mysi
             if (!Input.GetKey(showUIButton))

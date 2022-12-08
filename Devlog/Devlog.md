@@ -92,12 +92,16 @@ Target arrows WIP								~5h
 Icons for HUD and tweaking HUD                  ~0.5h
 Meteor-ship and ship-ship collisions            ~0.5h
 Fix Target Arrows proper scaling                ~1h
+Playtesting and BugFinding                      ~0.5h
+Balancing and tweaking                          ~1.5h
+Handbrake                                       ~0.25h
+Preparing for playtest                          ~0.25h
 
-Total Time spent								~7.5h
+Total Time spent								~10h
 ## Total
 ### Jirka
 ~20h
 ### Honza
 ~13.25h
 ### Petr
-~10h
+~20h
