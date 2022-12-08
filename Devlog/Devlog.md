@@ -91,8 +91,9 @@ Adding simple crosshair dot						~0.25h
 Target arrows WIP								~5h
 Icons for HUD and tweaking HUD                  ~0.5h
 Meteor-ship and ship-ship collisions            ~0.5h
+Fix Target Arrows proper scaling                ~1h
 
-Total Time spent								~6.5h
+Total Time spent								~7.5h
 ## Total
 ### Jirka
 ~20h

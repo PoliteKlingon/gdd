@@ -2123,6 +2123,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5776679520032404140, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6441042788119649058, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2215,6 +2219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8721953344634597930, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8721953344634597931, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2227,6 +2235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar2
       objectReference: {fileID: 0}
+    - target: {fileID: 8778864216218498223, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1519960503}
     - target: {fileID: 8778864216218498223, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
       propertyPath: screen
       value: 1
@@ -3621,6 +3633,11 @@ MonoBehaviour:
   ship: {fileID: 908267989}
   defaultCastShift: 3
   defaultShift: 50
+--- !u!223 &1196839803 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8721953344634597931, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
+  m_PrefabInstance: {fileID: 8721953344372026892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1197545651
 GameObject:
   m_ObjectHideFlags: 0
@@ -4481,6 +4498,11 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4701554379867424618, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
   m_PrefabInstance: {fileID: 651387286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1519960503 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8721953344634597931, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
+  m_PrefabInstance: {fileID: 772831635}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1580140480
 GameObject:
@@ -5886,6 +5908,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5776679520032404140, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6441042788119649058, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6018,6 +6044,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8778864216218498223, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1196839803}
     - target: {fileID: 8778864216218498223, guid: 09bb9b63efb9d8c4ab0ba6bb8d4d3179, type: 3}
       propertyPath: target
       value: 
