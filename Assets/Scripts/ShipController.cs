@@ -19,6 +19,7 @@ public class ShipController : MonoBehaviour
 
     [SerializeField] private float acceleration = 10;
     [SerializeField] private float maxSpeed = 10;
+    [SerializeField] private float braking = 2.0f;
 
     private Rigidbody _rigidbody;
 
@@ -207,7 +208,7 @@ public class ShipController : MonoBehaviour
         }
 
         //brzdeni
-        _rigidbody.AddForce(-_rigidbody.velocity * 2 * Time.deltaTime, ForceMode.Impulse);
+        _rigidbody.AddForce(-_rigidbody.velocity * braking * Time.deltaTime, ForceMode.Impulse);
         /*if (_rigidbody.angularVelocity.magnitude > 0.05f)
             _rigidbody.AddTorque(-_rigidbody.angularVelocity.normalized * 500 * Time.deltaTime);
         else

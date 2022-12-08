@@ -1736,7 +1736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shiftForward
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shootingButton
@@ -1748,7 +1748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileDamage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectilePrefab
@@ -2709,7 +2709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shiftForward
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileSpeed
@@ -2717,7 +2717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: projectileDamage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6397886557849861869, guid: 1bc315c29fe0ec76a8e1c78e7701dad7, type: 3}
       propertyPath: shootingInterval
@@ -2982,6 +2982,7 @@ MonoBehaviour:
   visualEmission: {fileID: 1489768443}
   acceleration: 250
   maxSpeed: 70
+  braking: 5
   rotationAxisX: 
   rotationAxisY: 
   mouseSensitivity: 1
@@ -3909,7 +3910,7 @@ RectTransform:
   m_GameObject: {fileID: 1285327484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1179372210}
@@ -4973,7 +4974,7 @@ RectTransform:
   m_GameObject: {fileID: 1807777665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 324326099}
@@ -5259,6 +5260,7 @@ MonoBehaviour:
   visualEmission: {fileID: 1761200875}
   acceleration: 250
   maxSpeed: 70
+  braking: 5
   rotationAxisX: Mouse X
   rotationAxisY: Mouse Y
   mouseSensitivity: 1

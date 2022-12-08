@@ -94,7 +94,7 @@ public class ProjectileGun : MonoBehaviour
             if (myRigidbody == null) 
                 Debug.Log("missing rigidbody component!");
             else
-                projRigidbody.AddForce(myRigidbody.velocity + transform.forward * projectileSpeed * _energyPortion, ForceMode.VelocityChange);
+                projRigidbody.AddForce(myRigidbody.velocity + transform.forward * projectileSpeed /* * _energyPortion*/, ForceMode.VelocityChange);
         }
 
         if (source != null && clip != null)

@@ -10,8 +10,8 @@ public class Shield : MonoBehaviour
     // [SerializeField] private float rocketDamage = 20;
     [SerializeField] private Health shipHealth;
 
-    private static readonly float METEOR_COLLISION_DMG = 75;
-    private static readonly float SHIP_COLLISION_DMG = 50;
+    private static readonly float METEOR_COLLISION_DMG = 30;
+    private static readonly float SHIP_COLLISION_DMG = 15;
     private float _energy;
     // Start is called before the first frame update
     void Start()
