@@ -21,7 +21,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float acceleration = 10;
     [SerializeField] private float maxSpeed = 10;
     [SerializeField] private float braking = 2.0f;
-    private float _handbrake = 100.0f;
+    [SerializeField] private float handbrake = 0.75f;
 
     private Rigidbody _rigidbody;
 
@@ -134,7 +134,7 @@ public class ShipController : MonoBehaviour
 
     private void HandBrake()
     {
-        _rigidbody.AddForce(-_rigidbody.velocity * _handbrake * Time.deltaTime, ForceMode.Impulse);
+        _rigidbody.velocity *= handbrake;
     }
     
     public float getAcceleration()
