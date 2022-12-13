@@ -16,8 +16,8 @@ public class PowerUpsManager : MonoBehaviour
    
     public static PowerUpsManager Instance { get; private set; }
 
-    [SerializeField] public float accShift = 200.0f;
-    [SerializeField] public float speedShift = 200.0f;
+    [SerializeField] public float accShift = 150.0f;
+    [SerializeField] public float speedShift = 70.0f;
     [SerializeField] public float shootIntervalShift = -0.3f;
     [SerializeField] public float shootSpeedShift = 200.0f;
     [SerializeField] public float damageShift = 200.0f;
@@ -40,11 +40,16 @@ public class PowerUpsManager : MonoBehaviour
     [SerializeField] public List<PowerUpDuration> activePowers;
     // Start is called before the first frame update
 
-    public void Awake()
+    public void Init()
     {
         activePowers = new List<PowerUpDuration>();
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
+    }
+
+    public void Awake()
+    {
+        Init();
         if (Instance == null)
         {
             // 'this' is the first instance created => save it.

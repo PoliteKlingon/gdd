@@ -13,9 +13,11 @@ public class DeadScreenCanvas : MonoBehaviour
         canvas.enabled = false;
         restartButton.onClick.AddListener(() =>
         {
+
             canvas.enabled = false;
             SceneManager.LoadScene(0);
             GameUtils.Instance.LockCursor();
+            PowerUpsManager.Instance.Init();
         });
     }
 
