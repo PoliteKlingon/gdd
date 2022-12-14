@@ -3273,8 +3273,8 @@ MonoBehaviour:
   visualEmission: {fileID: 1489768443}
   visualInvisible: {fileID: 246386910}
   visualEmissionInvisible: {fileID: 6797873}
-  acceleration: 250
-  maxSpeed: 70
+  acceleration: 350
+  maxSpeed: 200
   braking: 5
   handbrake: 0.75
   rotationAxisX: 
@@ -5735,8 +5735,8 @@ MonoBehaviour:
   visualEmission: {fileID: 1761200875}
   visualInvisible: {fileID: 69417519}
   visualEmissionInvisible: {fileID: 993989278}
-  acceleration: 250
-  maxSpeed: 70
+  acceleration: 350
+  maxSpeed: 200
   braking: 5
   handbrake: 0.75
   rotationAxisX: Mouse X
