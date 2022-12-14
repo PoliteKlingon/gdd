@@ -17,6 +17,9 @@ public class ShipController : MonoBehaviour
 
     [SerializeField] private GameObject visual;
     [SerializeField] private GameObject visualEmission;
+    
+    [SerializeField] private GameObject visualInvisible;
+    [SerializeField] private GameObject visualEmissionInvisible;
 
     [SerializeField] private float acceleration = 10;
     [SerializeField] private float maxSpeed = 10;
@@ -104,7 +107,9 @@ public class ShipController : MonoBehaviour
         SetThrusters(rightThrusters, false);
 
         GameUtils.Instance.LockCursor();
-
+    
+        setVisible();
+        
         _deathTimeout = deathTimeout;
     }
 
@@ -273,14 +278,18 @@ public class ShipController : MonoBehaviour
     public void setInvisible()
     {
         visual.GetComponent<MeshRenderer>().enabled = false;
+        visualInvisible.GetComponent<MeshRenderer>().enabled = true;
         visualEmission.GetComponent<MeshRenderer>().enabled = false;
+        visualEmissionInvisible.GetComponent<MeshRenderer>().enabled = true;
         _invisible = true;
     }
 
     public void setVisible()
     {
         visual.GetComponent<MeshRenderer>().enabled = true;
+        visualInvisible.GetComponent<MeshRenderer>().enabled = false;
         visualEmission.GetComponent<MeshRenderer>().enabled = true;
+        visualEmissionInvisible.GetComponent<MeshRenderer>().enabled = false;
         _invisible = false;
     }
 }
