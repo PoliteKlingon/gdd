@@ -98,9 +98,16 @@ Handbrake                                       ~0.25h
 Preparing for playtest                          ~0.25h
 
 Total Time spent								~10h
+## Final polishing
+### Jirka
+Invisibility advancement						~1h
+
+Total time spent								~1h
+### Honza
+### Petr
 ## Total
 ### Jirka
-~20h
+~21h
 ### Honza
 ~13.25h
 ### Petr
