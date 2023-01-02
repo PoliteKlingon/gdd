@@ -1,0 +1,20 @@
+Jirka - Team Leader (40%)
+ - ship movement and shooting, controls
+ - core mechanics
+ - visual assets, audio, effects
+ - energy system
+ - camera movement, effects, postprocessing
+ - adaptive target feature
+
+Honza - UI Expert (24%)
+ - Energy UI
+ - Power-up system implementation + visuals
+
+Petr - Health & Features Expert (36%);
+ - Health system, collisions
+ - HUD
+ - player arrow feature
+
+Teamwork: 
+communication platform - Discord
+last week Honza caught a severe variation of COVID and therefore could not work on the project, thus his smaller work input in the W03
