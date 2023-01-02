@@ -101,13 +101,14 @@ Total Time spent								~10h
 ## Final polishing
 ### Jirka
 Invisibility advancement						~1h
+Polishing										~1h
 
-Total time spent								~1h
+Total time spent								~2h
 ### Honza
 ### Petr
 ## Total
 ### Jirka
-~21h
+~22h
 ### Honza
 ~13.25h
 ### Petr
