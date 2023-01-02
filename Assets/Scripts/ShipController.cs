@@ -194,7 +194,8 @@ public class ShipController : MonoBehaviour
                 Vector2 rotate = _controls.Gameplay.Rotate.ReadValue<Vector2>();
                 //transform.Rotate(new Vector3(gamepadSensitivity * -rotate.y, gamepadSensitivity * rotate.x, 0));
                 //_rigidbody.AddRelativeTorque(25 * new Vector3(gamepadSensitivity * -rotate.y, gamepadSensitivity * rotate.x, 0));
-                _rigidbody.angularVelocity = gamepadSensitivity * -rotate.y * transform.right + gamepadSensitivity * rotate.x * transform.up;
+                _rigidbody.angularVelocity = gamepadSensitivity * -rotate.y * transform.right 
+                                             + gamepadSensitivity * rotate.x * transform.up;
             }
         }
         else
