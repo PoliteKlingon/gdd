@@ -20,8 +20,8 @@ public class EnergyManagement : MonoBehaviour
     
     [SerializeField] private float totalEnergy = 1.0f; //to be changed? we'll see
 
-    [SerializeField] public const float REMAINING_ENERGY = 0.98f;
-    [SerializeField] public const float GIVEN_ENERGY = 0.02f;
+    [SerializeField] public const float REMAINING_ENERGY = 0.97f;
+    [SerializeField] public const float GIVEN_ENERGY = 1 - REMAINING_ENERGY;
     private const float BASIC_FILL_LEVEL = 0.5f;
 
 
@@ -127,6 +127,7 @@ public class EnergyManagement : MonoBehaviour
         bottomBar.rectTransform.localScale = new Vector3(_width, _bottomShieldsEnergyPart * totalEnergy / (_bottomShieldsInitEnergy * 2), 1);
         energyBar.SetFillLevel(totalEnergy * BASIC_FILL_LEVEL);
 
+        /*
         engineText.text = _enginesEnergyPart.ToString();
         weaponText.text = _weaponsEnergyPart.ToString();
         topText.text = _topShieldsEnergyPart.ToString();
@@ -137,6 +138,7 @@ public class EnergyManagement : MonoBehaviour
         backText.text = _backShieldsEnergyPart.ToString();
 
         controlText.text = (_enginesEnergyPart + _weaponsEnergyPart + _topShieldsEnergyPart + _bottomShieldsEnergyPart + _leftShieldsEnergyPart + _rightShieldsEnergyPart + _frontShieldsEnergyPart + _backShieldsEnergyPart).ToString();
+        */
     }
 
     private void ClipToZero()

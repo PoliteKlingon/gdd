@@ -44,11 +44,6 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float deathTimeout = 10.0f;
     private float _deathTimeout;
     
-    [SerializeField]
-    private Health health;
-    [SerializeField]
-    private float collisionDamage = 40.0f;
-    
     private bool _invisible = false;
     
     private void Awake()

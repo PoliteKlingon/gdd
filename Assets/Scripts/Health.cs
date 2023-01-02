@@ -57,7 +57,6 @@ public class Health : MonoBehaviour
                     expSource.pitch = Random.Range(0.65f, 1.25f);
                     expSource.volume = Random.Range(0.70f, 0.90f);
                     expSource.PlayOneShot(explosionClip);
-                    Debug.Log("bum");
                 }
             }
             else
