@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player2
+  - Player1
   layers:
   - Default
   - TransparentFX
@@ -11,22 +13,22 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ship
+  - PowerUps
+  - Shields
+  - Meteor
+  - Projectile
+  - Player 1 Camera
+  - Player 2 Camera
+  - PostProcessing
+  - Projectile Player 1
+  - Projectile Player 2
+  - Ship Player 1
+  - Ship Player 2
+  - Target Player 1
+  - Target Player 2
+  - Invisible Player 1
+  - Invisible Player 2
   - 
   - 
   - 
